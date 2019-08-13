@@ -1,0 +1,52 @@
+{
+  "courses": [{
+    "institute": "Universidad Autonoma del Estado de Hidalgo",
+    "grade": "Lic. en Ciencias Computacionales",
+    "period": "Julio 2013 - Noviembre 2017",
+    "id": "EGRESADO",
+    "image": "image"
+  },
+    {
+      "institute": "Universidad Autonoma del Estado",
+      "grade": "Lic. en Ciencias Computacionales",
+      "period": "Julio 2013 - Noviembre 2017",
+      "id": "EGRESADO",
+      "image": "image"
+    },
+    {
+      "institute": "Universidad Autonoma del",
+      "grade": "Lic. en Ciencias Computacionales",
+      "period": "Julio 2013 - Noviembre 2017",
+      "id": "EGRESADO",
+      "image": "image"
+    },
+    {
+      "institute": "Universidad Autonoma",
+      "grade": "Lic. en Ciencias Computacionales",
+      "period": "Julio 2013 - Noviembre 2017",
+      "id": "EGRESADO",
+      "image": "image"
+    },
+    {
+      "institute": "Universidad",
+      "grade": "Lic. en Ciencias Computacionales",
+      "period": "Julio 2013 - Noviembre 2017",
+      "id": "EGRESADO",
+      "image": "image"
+    },
+    {
+      "institute": "UAEH",
+      "grade": "Lic. en Ciencias Computacionales",
+      "period": "Julio 2013 - Noviembre 2017",
+      "id": "EGRESADO",
+      "image": "image"
+    },
+    {
+      "institute": "GARZA",
+      "grade": "Lic. en Ciencias Computacionales",
+      "period": "Julio 2013 - Noviembre 2017",
+      "id": "EGRESADO",
+      "image": "image"
+    }
+  ]
+}
