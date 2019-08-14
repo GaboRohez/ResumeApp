@@ -14,14 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
-        android:name=".MyApp">
-        <activity android:name=".SplashActivity" android:theme="@style/SplashTheme">
+        android:name=".config.AppConfig">
+        <activity android:name=".ui.splash.view.SplashActivity" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.main.MainActivity">
         </activity>
     </application>
 

@@ -1,8 +1,10 @@
-package xyz.gabrielrohez.resumeapp;
+package xyz.gabrielrohez.resumeapp.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import xyz.gabrielrohez.resumeapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
