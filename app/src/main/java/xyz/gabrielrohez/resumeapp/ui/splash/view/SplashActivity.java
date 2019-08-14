@@ -19,6 +19,7 @@ public class SplashActivity extends AppCompatActivity implements SplashView {
         super.onCreate(savedInstanceState);
         presenter = new SplashPresenter(this);
 
+        presenter.getPersonalInfo();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();

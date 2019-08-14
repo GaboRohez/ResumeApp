@@ -12,4 +12,9 @@ public class SplashPresenter implements SplashPresenterIn, SplashListener {
         this.view = view;
         model = new SplashModel();
     }
+
+    @Override
+    public void getPersonalInfo() {
+        model.getPersonalInfo(this);
+    }
 }
