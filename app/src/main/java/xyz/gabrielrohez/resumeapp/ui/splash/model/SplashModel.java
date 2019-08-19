@@ -13,11 +13,13 @@ import xyz.gabrielrohez.resumeapp.ui.splash.presenter.SplashListener;
 public class SplashModel implements SplashModelIn {
 
     @Override
-    public void getPersonalInfo(SplashListener listener) {
+    public void getPersonalInfo(final SplashListener listener) {
         RetrofitClient.getInstance().retrofit.create(ApiEndpoint.class).getPersonalInfo().enqueue(new Callback<ResponseAbout>() {
             @Override
             public void onResponse(Call<ResponseAbout> call, Response<ResponseAbout> response) {
-                Log.d("APP_LOG", response.body().getAbout().toString());
+                if (response.isSuccessful()){
+                    listener.openProfile(response.body());
+                }
             }
 
             @Override

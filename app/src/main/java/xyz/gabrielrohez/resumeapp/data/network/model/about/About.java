@@ -1,8 +1,11 @@
 package xyz.gabrielrohez.resumeapp.data.network.model.about;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class About {
+public class About implements Parcelable {
     @SerializedName("name")
     private String name;
     @SerializedName("email")
@@ -15,6 +18,42 @@ public class About {
     private String location;
     @SerializedName("resume")
     private String resume;
+
+    protected About(Parcel in) {
+        name = in.readString();
+        email = in.readString();
+        phone = in.readString();
+        job = in.readString();
+        location = in.readString();
+        resume = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(email);
+        dest.writeString(phone);
+        dest.writeString(job);
+        dest.writeString(location);
+        dest.writeString(resume);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<About> CREATOR = new Creator<About>() {
+        @Override
+        public About createFromParcel(Parcel in) {
+            return new About(in);
+        }
+
+        @Override
+        public About[] newArray(int size) {
+            return new About[size];
+        }
+    };
 
     public String getName() {
         return name;
