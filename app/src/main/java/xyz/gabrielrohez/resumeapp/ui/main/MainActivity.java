@@ -1,12 +1,12 @@
 package xyz.gabrielrohez.resumeapp.ui.main;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import xyz.gabrielrohez.resumeapp.R;
+import xyz.gabrielrohez.resumeapp.base.activity.BasicActivity;
 import xyz.gabrielrohez.resumeapp.data.network.model.about.ResponseAbout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BasicActivity {
 
     private ResponseAbout body;
     @Override
