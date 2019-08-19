@@ -8,10 +8,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import xyz.gabrielrohez.resumeapp.R;
+import xyz.gabrielrohez.resumeapp.ui.dialogs.DialogSplash;
+import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 
 public class BasicActivity extends AppCompatActivity implements BasicView, BasicUIView, FragmentManager.OnBackStackChangedListener {
 
-    private FragmentManager manager;
+    //  https://github.com/material-components/material-components-android/releases
+    private DialogSplash dialogSplash;
+    private FragmentManager manager = getSupportFragmentManager();
 
     @Override
     public void showDialog(String message) {
@@ -20,7 +24,8 @@ public class BasicActivity extends AppCompatActivity implements BasicView, Basic
 
     @Override
     public void showDialogSplash(String message) {
-
+        dialogSplash = DialogSplash.newInstance(message);
+        dialogSplash.show(manager, AppConstants.TAG_SPLASH_DIALOG);
     }
 
     @Override

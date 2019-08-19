@@ -3,6 +3,7 @@
     <color name="colorPrimary">#232B31</color>
     <color name="colorPrimaryDark">#101316</color>
     <color name="colorAccent">#F2F2F2</color>
+    <color name="colorWhite">#FFFFFF</color>
 
     <color name="colorRed">#F03D46</color>
     <color name="colorGreen">#9CAC26</color>
@@ -12,4 +13,5 @@
     <color name="colorBlack">#040404</color>
     <color name="colorSecondaryBlue">#35577E</color>
     <color name="colorSecondaryGray">#848789</color>
+
 </resources>
