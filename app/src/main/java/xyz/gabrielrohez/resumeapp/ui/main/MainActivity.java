@@ -9,6 +9,7 @@ import xyz.gabrielrohez.resumeapp.data.network.model.about.ResponseAbout;
 public class MainActivity extends BasicActivity {
 
     private ResponseAbout body;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,9 @@ public class MainActivity extends BasicActivity {
         getParcelableData();
     }
 
+    /**
+     * get parcel data from intent
+     */
     private void getParcelableData() {
         if (getIntent().getExtras()!=null){
             body = (ResponseAbout) getIntent().getParcelableExtra("body");
