@@ -5,14 +5,18 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.SystemClock;
 
+import xyz.gabrielrohez.resumeapp.R;
+
 public class AppConfig extends Application {
 
     private static Context mContext;
+    public static AndroidResourceManager androidResourceManager;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
+        androidResourceManager = new AndroidResourceManager(getResources());
         SystemClock.sleep(2000);
     }
 
@@ -28,9 +32,17 @@ public class AppConfig extends Application {
             this.resources = resources;
         }
 
-        /*public String getNoPerfil() {
-            return resources.getString(R.string.no_perfil);
-        }*/
+        public String getRetrofitTimeout() {
+            return resources.getString(R.string.retrofit_timeout);
+        }
+
+        public String getRetrofitFailure() {
+            return resources.getString(R.string.retrofit_failure);
+        }
+
+        public String getRetrofitWrongResponse() {
+            return resources.getString(R.string.retrofit_wrong_response);
+        }
 
     }
 }
