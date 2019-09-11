@@ -7,7 +7,8 @@
 
     <color name="colorRed">#F03D46</color>
     <color name="colorGreen">#9CAC26</color>
-    <color name="colorBlue">#4683A1</color>
+    <color name="colorBlue">#0D47A1</color>
+    <color name="colorGray">#919191</color>
     <color name="colorOrange">#F1722B</color>
 
     <color name="colorBlack">#040404</color>

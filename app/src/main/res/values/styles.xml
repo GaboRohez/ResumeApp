@@ -15,6 +15,12 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <style name="MenuTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="colorPrimary">@color/colorBlue</item>
+        <item name="colorPrimaryDark">@color/colorGray</item>
+        <item name="colorAccent">@color/colorWhite</item>
+    </style>
+
     <style name="h1" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
