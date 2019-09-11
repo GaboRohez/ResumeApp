@@ -8,6 +8,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.activity.BasicActivity;
+import xyz.gabrielrohez.resumeapp.ui.about.AboutFragment;
+import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 
 public class MenuActivity extends BasicActivity {
 
@@ -26,7 +28,7 @@ public class MenuActivity extends BasicActivity {
         navView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.navigation_profile:
-
+                    addFragment(AboutFragment.newInstance(), AppConstants.TAG_ABOUT_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_school:
 
