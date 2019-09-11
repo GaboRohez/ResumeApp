@@ -25,13 +25,16 @@ public class MenuActivity extends BasicActivity {
     private void setUpEvents() {
         navView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.navigation_profile:
 
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_school:
 
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_code:
+
+                    return true;
+                case R.id.navigation_work:
 
                     return true;
             }
