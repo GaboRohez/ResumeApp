@@ -6,4 +6,9 @@
     <string name="error">Error</string>
     <string name="custom_error">Custom Error</string>
     <string name="accept">Accept</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_profile">About me</string>
+    <string name="title_school">Education</string>
+    <string name="title_work">Experience</string>
+    <string name="title_code">Apps</string>
 </resources>
