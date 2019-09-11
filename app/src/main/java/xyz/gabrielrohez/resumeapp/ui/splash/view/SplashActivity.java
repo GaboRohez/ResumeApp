@@ -4,7 +4,9 @@ import androidx.annotation.Nullable;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
+import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.activity.BasicActivity;
 import xyz.gabrielrohez.resumeapp.data.network.model.about.ResponseAbout;
 import xyz.gabrielrohez.resumeapp.ui.main.MenuActivity;
@@ -18,6 +20,7 @@ public class SplashActivity extends BasicActivity implements SplashView {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
         presenter = new SplashPresenter(this, this);
 
         presenter.getPersonalInfo();
@@ -25,9 +28,12 @@ public class SplashActivity extends BasicActivity implements SplashView {
 
     @Override
     public void openProfile(ResponseAbout body) {
-        Intent intent = new Intent(this, MenuActivity.class);
-        intent.putExtra("body", body);
-        startActivity(intent);
-        finish();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashActivity.this, MenuActivity.class).putExtra("body", body));
+                finish();
+            }
+        }, 2000);
     }
 }

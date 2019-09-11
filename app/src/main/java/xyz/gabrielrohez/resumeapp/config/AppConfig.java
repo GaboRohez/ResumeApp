@@ -17,7 +17,6 @@ public class AppConfig extends Application {
         super.onCreate();
         mContext = getApplicationContext();
         androidResourceManager = new AndroidResourceManager(getResources());
-        SystemClock.sleep(2000);
     }
 
     public static Context getAppContext() {

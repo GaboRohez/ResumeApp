@@ -9,7 +9,6 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
-        <item name="android:windowBackground">@drawable/background</item>
         <item name="colorPrimary">@color/colorBlue</item>
         <item name="colorPrimaryDark">@color/colorGray</item>
         <item name="colorAccent">@color/colorWhite</item>
@@ -59,7 +58,7 @@
     <style name="h5">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColor">@color/colorGrayLight</item>
         <item name="android:fontFamily">@font/work_sans_bold</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/size_h5</item>
