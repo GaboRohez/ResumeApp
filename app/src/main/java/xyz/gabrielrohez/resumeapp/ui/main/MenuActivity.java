@@ -22,13 +22,14 @@ public class MenuActivity extends BasicActivity {
         ButterKnife.bind(this);
 
         setUpEvents();
+        navView.setSelectedItemId(R.id.navigation_profile);
     }
 
     private void setUpEvents() {
         navView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.navigation_profile:
-                    addFragment(AboutFragment.newInstance(), AppConstants.TAG_ABOUT_FRAGMENT, R.id.contentFragment);
+                    replaceFragment(AboutFragment.newInstance(), AppConstants.TAG_ABOUT_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_school:
 

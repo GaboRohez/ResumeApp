@@ -12,6 +12,6 @@
     <string name="title_work">Experience</string>
     <string name="title_code">Apps</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="resume">Desarrollador móvil con tres años de experiencia en el entorno Android y seis meses con iOS.Creo que es importante desarrollar aplicaciones intuitivas para el usuario, con un diseño simple y responsivo para las distintas resoluciones que se manejan actualmente en los dispositivos móviles ademas de generar un código altamente legible y fácil de mantener.Procuro mantenerme a la vanguardia con las nuevas tecnologías para poder usarlas como herramientas que me permitan crecer profesionalmente y superarme en esta industria de software que se encuentra en un constante cambio. Persona responsable, comprometida, creativa y puntual.</string>
 </resources>

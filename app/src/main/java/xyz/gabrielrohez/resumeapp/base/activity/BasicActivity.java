@@ -51,7 +51,7 @@ public class BasicActivity extends AppCompatActivity implements BasicView, Basic
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(id, fragment, TAG);
         fragmentTransaction.commit();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false); //  disable arrow back
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(false); //  disable arrow back
     }
 
     @Override
@@ -62,18 +62,17 @@ public class BasicActivity extends AppCompatActivity implements BasicView, Basic
     @Override
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //  enable arrow back
+            //getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //  enable arrow back
 
-            String tagName = getSupportFragmentManager().
-                    getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
+            //String tagName = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
 
-            Fragment fragment = getSupportFragmentManager().findFragmentByTag(tagName);
+            //Fragment fragment = getSupportFragmentManager().findFragmentByTag(tagName);
             /*if (fragment instanceof MapFragment) {
                 //titleBar.setText(getResources().getString(R.string.title_education));
             }*/
         } else {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false); //  disable arrow back
-            setTitleToolbar(getString(R.string.app_name));
+            //getSupportActionBar().setDisplayHomeAsUpEnabled(false); //  disable arrow back
+            //setTitleToolbar(getString(R.string.app_name));
             /*EducationFragment educationFragment =
                     (EducationFragment) getSupportFragmentManager().findFragmentByTag(Constants.TAG_EDUCATION);
             if (educationFragment != null && educationFragment.isVisible()) {
