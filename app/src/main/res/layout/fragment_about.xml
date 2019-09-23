@@ -22,7 +22,7 @@
             <!-- header -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_200">
+                android:layout_height="@dimen/dimen_250">
                 <ImageView
                     android:src="@drawable/dummy_header"
                     android:scaleType="centerCrop"
@@ -182,6 +182,7 @@
                         android:background="@color/colorGrayLight"
                         android:layout_height="0.5dp"/>
                     <TextView
+                        android:id="@+id/tvAboutResume"
                         android:layout_marginTop="@dimen/smallMargin"
                         android:layout_below="@+id/viewSeparator"
                         style="@style/body3"
@@ -208,6 +209,62 @@
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
+            <LinearLayout
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="6dp"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="@dimen/mediumMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+                        <TextView
+                            style="@style/subtitle3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Aptitudes"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginTop="@dimen/smallMargin"
+                            android:id="@+id/rvAboutAptitudes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="6dp"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="@dimen/mediumMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp">
+                        <TextView
+                            style="@style/subtitle3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Intereses"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginTop="@dimen/smallMargin"
+                            android:id="@+id/rvAboutInterest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
