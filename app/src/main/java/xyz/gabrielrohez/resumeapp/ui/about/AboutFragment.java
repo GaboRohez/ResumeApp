@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,11 +19,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.fragment.BasicFragment;
+import xyz.gabrielrohez.resumeapp.custom.ObservableScrollView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AboutFragment extends BasicFragment {
+public class AboutFragment extends BasicFragment implements ObservableScrollView.OnScrollChangedListener {
 
     @BindView(R.id.tvAboutName)
     TextView tvName;
@@ -45,6 +48,10 @@ public class AboutFragment extends BasicFragment {
     RecyclerView rvAboutAptitudes;
     @BindView(R.id.rvAboutInterest)
     RecyclerView rvAboutInterest;
+    @BindView(R.id.aboutScrollView)
+    ObservableScrollView scrollView;
+    @BindView(R.id.img_container)
+    FrameLayout frameLayout;
 
     public static AboutFragment newInstance() {
         Bundle args = new Bundle();
@@ -64,7 +71,7 @@ public class AboutFragment extends BasicFragment {
 
         View view = inflater.inflate(R.layout.fragment_about, container, false);
         ButterKnife.bind(this, view);
-
+        scrollView.setOnScrollChangedListener(this);
         return view;
     }
 
@@ -78,5 +85,12 @@ public class AboutFragment extends BasicFragment {
             case R.id.layoutAboutGit:
                 break;
         }
+    }
+
+    @Override
+    public void onScrollChanged(int deltaX, int deltaY) {
+        int scrollY = scrollView.getScrollY();
+        // Add parallax effect
+        frameLayout.setTranslationY(scrollY * 0.5f);
     }
 }

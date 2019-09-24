@@ -11,7 +11,8 @@
     android:focusable="true">
 
 
-    <ScrollView
+    <xyz.gabrielrohez.resumeapp.custom.ObservableScrollView
+        android:id="@+id/aboutScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -22,12 +23,19 @@
             <!-- header -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_250">
-                <ImageView
-                    android:src="@drawable/dummy_header"
-                    android:scaleType="centerCrop"
+                android:layout_height="@dimen/dimen_300">
+                <FrameLayout
+                    android:id="@+id/img_container"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:id="@+id/ivAboutHeaderImage"
+                        android:src="@drawable/dummy_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+                </FrameLayout>
                 <RelativeLayout
                     android:background="#7E000000"
                     android:layout_width="match_parent"
@@ -266,5 +274,5 @@
 
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </xyz.gabrielrohez.resumeapp.custom.ObservableScrollView>
 </LinearLayout>
