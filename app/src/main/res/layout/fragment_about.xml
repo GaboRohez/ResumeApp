@@ -192,6 +192,7 @@
                     <TextView
                         android:id="@+id/tvAboutResume"
                         android:layout_marginTop="@dimen/smallMargin"
+                        android:justificationMode="inter_word"
                         android:layout_below="@+id/viewSeparator"
                         style="@style/body3"
                         android:text="@string/resume"/>
