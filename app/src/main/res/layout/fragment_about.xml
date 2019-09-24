@@ -110,7 +110,8 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@mipmap/ic_launcher"/>
+                                android:background="?attr/selectableItemBackground"
+                                android:src="@drawable/icon_web"/>
                             <TextView
                                 style="@style/body3"
                                 android:text="Web"
@@ -127,7 +128,8 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@mipmap/ic_launcher"/>
+                                android:background="?attr/selectableItemBackground"
+                                android:src="@drawable/icon_play_store"/>
                             <TextView
                                 style="@style/body3"
                                 android:text="Play Store"
@@ -144,10 +146,11 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@mipmap/ic_launcher"/>
+                                android:src="@drawable/icon_github"/>
                             <TextView
                                 style="@style/body3"
                                 android:text="Github"
+                                android:background="?attr/selectableItemBackground"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
