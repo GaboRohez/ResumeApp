@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -32,12 +30,6 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
     TextView tvLocation;
     @BindView(R.id.tvAboutJob)
     TextView tvJob;
-    @BindView(R.id.layoutAboutWeb)
-    LinearLayout layoutAboutWeb;
-    @BindView(R.id.layoutAboutPlay)
-    LinearLayout layoutAboutPlay;
-    @BindView(R.id.layoutAboutGit)
-    LinearLayout layoutAboutGit;
     @BindView(R.id.tvAboutEmail)
     TextView tvEmail;
     @BindView(R.id.tvAboutPhone)
@@ -66,13 +58,22 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_about, container, false);
-        ButterKnife.bind(this, view);
+        View rootView = inflater.inflate(R.layout.fragment_about, container, false);
+        ButterKnife.bind(this, rootView);
         scrollView.setOnScrollChangedListener(this);
-        return view;
+        return rootView;
+    }
+
+    /**
+     * Parallax effect
+     */
+    @Override
+    public void onScrollChanged(int deltaX, int deltaY) {
+        int scrollY = scrollView.getScrollY();
+        // Add parallax effect
+        frameLayout.setTranslationY(scrollY * 0.5f);
     }
 
     @OnClick({R.id.layoutAboutWeb, R.id.layoutAboutPlay, R.id.layoutAboutGit})
@@ -85,12 +86,5 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
             case R.id.layoutAboutGit:
                 break;
         }
-    }
-
-    @Override
-    public void onScrollChanged(int deltaX, int deltaY) {
-        int scrollY = scrollView.getScrollY();
-        // Add parallax effect
-        frameLayout.setTranslationY(scrollY * 0.5f);
     }
 }
