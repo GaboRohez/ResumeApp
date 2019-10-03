@@ -11,7 +11,7 @@
     android:focusable="true">
 
 
-    <xyz.gabrielrohez.resumeapp.custom.ObservableScrollView
+    <xyz.gabrielrohez.resumeapp.custom.scroll.ObservableScrollView
         android:id="@+id/aboutScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -218,6 +218,13 @@
                         android:layout_height="wrap_content"
                         android:text="Conocimientos Generales (Años de experiencia)"/>
 
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/barChart"
+                        android:layout_height="150dp"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/tvAboutTitleYOE"
+                        android:layout_marginTop="@dimen/mediumMargin" />
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -278,5 +285,5 @@
 
             </LinearLayout>
         </LinearLayout>
-    </xyz.gabrielrohez.resumeapp.custom.ObservableScrollView>
+    </xyz.gabrielrohez.resumeapp.custom.scroll.ObservableScrollView>
 </LinearLayout>

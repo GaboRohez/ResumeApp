@@ -1,7 +1,10 @@
 package xyz.gabrielrohez.resumeapp.ui.about;
 
 
+import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +12,39 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.model.GradientColor;
+import com.github.mikephil.charting.utils.MPPointF;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.fragment.BasicFragment;
-import xyz.gabrielrohez.resumeapp.custom.ObservableScrollView;
+import xyz.gabrielrohez.resumeapp.custom.barChart.DayAxisValueFormatter;
+import xyz.gabrielrohez.resumeapp.custom.barChart.MyBarChart;
+import xyz.gabrielrohez.resumeapp.custom.barChart.MyValueFormatter;
+import xyz.gabrielrohez.resumeapp.custom.scroll.ObservableScrollView;
+import xyz.gabrielrohez.resumeapp.data.network.charts.DataCharts;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,6 +71,8 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
     ObservableScrollView scrollView;
     @BindView(R.id.img_container)
     FrameLayout frameLayout;
+    @BindView(R.id.barChart)
+    BarChart chart;
 
     public static AboutFragment newInstance() {
         Bundle args = new Bundle();
@@ -62,7 +91,17 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
 
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
         ButterKnife.bind(this, rootView);
-        scrollView.setOnScrollChangedListener(this);
+        scrollView.setOnScrollChangedListener(this);   //   for parallax effect
+
+        List<DataCharts> listDataChart = new ArrayList<>();
+        listDataChart.add(new DataCharts("C++", 2f));
+        listDataChart.add(new DataCharts("Java", 3f));
+        listDataChart.add(new DataCharts("Objective C", 0.5f));
+        listDataChart.add(new DataCharts("Git", 1.5f));
+        listDataChart.add(new DataCharts("Kotlin", 0.5f));
+
+        MyBarChart myBarChart = new MyBarChart(chart, getActivity(), listDataChart);
+        myBarChart.showBarChart();
         return rootView;
     }
 
@@ -77,13 +116,16 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
     }
 
     @OnClick({R.id.layoutAboutWeb, R.id.layoutAboutPlay, R.id.layoutAboutGit})
-    public void onViewClicked(View view) {
+    void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.layoutAboutWeb:
+
                 break;
             case R.id.layoutAboutPlay:
+
                 break;
             case R.id.layoutAboutGit:
+
                 break;
         }
     }
