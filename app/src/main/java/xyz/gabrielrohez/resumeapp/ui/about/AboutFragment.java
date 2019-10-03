@@ -1,10 +1,7 @@
 package xyz.gabrielrohez.resumeapp.ui.about;
 
 
-import android.graphics.RectF;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,25 +9,10 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.highlight.Highlight;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.github.mikephil.charting.model.GradientColor;
-import com.github.mikephil.charting.utils.MPPointF;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.fragment.BasicFragment;
-import xyz.gabrielrohez.resumeapp.custom.barChart.DayAxisValueFormatter;
 import xyz.gabrielrohez.resumeapp.custom.barChart.MyBarChart;
-import xyz.gabrielrohez.resumeapp.custom.barChart.MyValueFormatter;
 import xyz.gabrielrohez.resumeapp.custom.scroll.ObservableScrollView;
 import xyz.gabrielrohez.resumeapp.data.network.charts.DataCharts;
 

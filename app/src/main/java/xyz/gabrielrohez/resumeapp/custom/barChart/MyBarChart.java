@@ -1,8 +1,6 @@
 package xyz.gabrielrohez.resumeapp.custom.barChart;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.RectF;
 import android.util.Log;
 
 import androidx.core.content.ContextCompat;
@@ -58,7 +56,7 @@ public class MyBarChart {
         // chart.setDrawYLabels(false);
         //chart.getXAxis().setDrawLabels(false);  //// hide labels bottom
 
-        ValueFormatter xAxisFormatter = new DayAxisValueFormatter(chart);
+        ValueFormatter xAxisFormatter = new AxisValueFormatter(chart, list); // formater to x
 
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -69,7 +67,7 @@ public class MyBarChart {
         xAxis.setValueFormatter(xAxisFormatter);
 
         //ValueFormatter custom = new MyValueFormatter("$");    // sufix in y
-        ValueFormatter custom = new MyValueFormatter("");
+        ValueFormatter custom = new MyValueFormatter("");       //formater to y
 
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setTypeface(ResourcesCompat.getFont(context, R.font.work_sans));
@@ -117,11 +115,9 @@ public class MyBarChart {
     private void setData() {
 
         ArrayList<BarEntry> entries = new ArrayList<>();
-        final String[] barName = new String[list.size()];
 
         for (int i = 0; i<list.size(); i++){
             entries.add(new BarEntry(i+1, list.get(i).getValue()));
-            barName[i] = list.get(i).getName();
         }
 
         //***************************************************
@@ -138,14 +134,9 @@ public class MyBarChart {
         List<Integer> colors = new ArrayList<>();
         colors.add(ContextCompat.getColor(context, android.R.color.holo_orange_light));
         colors.add(ContextCompat.getColor(context, android.R.color.holo_blue_light));
-        colors.add(ContextCompat.getColor(context, android.R.color.holo_orange_light));
         colors.add(ContextCompat.getColor(context, android.R.color.holo_green_light));
         colors.add(ContextCompat.getColor(context, android.R.color.holo_red_light));
-        colors.add(ContextCompat.getColor(context, android.R.color.holo_blue_dark));
         colors.add(ContextCompat.getColor(context, android.R.color.holo_purple));
-        colors.add(ContextCompat.getColor(context, android.R.color.holo_green_dark));
-        colors.add(ContextCompat.getColor(context, android.R.color.holo_red_dark));
-        colors.add(ContextCompat.getColor(context, android.R.color.holo_orange_dark));
 
         set1.setColors(colors);
 
@@ -156,6 +147,7 @@ public class MyBarChart {
         data.setValueTextSize(10f);
         data.setValueTypeface(ResourcesCompat.getFont(context, R.font.work_sans));
         data.setBarWidth(0.9f);
+        data.setDrawValues(false);  //hide labels in top of chart
 
         /*data.setValueFormatter(new MyValueFormatter("") {
             @Override

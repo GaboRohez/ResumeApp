@@ -144,6 +144,7 @@
                             android:gravity="center"
                             android:layout_height="match_parent">
                             <ImageView
+                                android:padding="@dimen/dimen_6"
                                 android:background="?attr/selectableItemBackground"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
@@ -210,7 +211,7 @@
                 <RelativeLayout
                     android:padding="@dimen/mediumMargin"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/tvAboutTitleYOE"
                         style="@style/subtitle3"
@@ -220,7 +221,7 @@
 
                     <com.github.mikephil.charting.charts.BarChart
                         android:id="@+id/barChart"
-                        android:layout_height="150dp"
+                        android:layout_height="200dp"
                         android:layout_width="match_parent"
                         android:layout_below="@+id/tvAboutTitleYOE"
                         android:layout_marginTop="@dimen/mediumMargin" />

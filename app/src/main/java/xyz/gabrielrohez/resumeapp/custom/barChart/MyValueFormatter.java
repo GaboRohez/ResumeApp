@@ -13,7 +13,8 @@ public class MyValueFormatter extends ValueFormatter
     private String suffix;
 
     public MyValueFormatter(String suffix) {
-        mFormat = new DecimalFormat("###,###,###,##0.0");
+        //mFormat = new DecimalFormat("###,###,###,##0.0"); // with decimal
+        mFormat = new DecimalFormat("###,###,###,##0"); // no decimal
         this.suffix = suffix;
     }
 

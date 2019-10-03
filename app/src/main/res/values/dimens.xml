@@ -21,4 +21,5 @@
     <dimen name="dimen_250">250dp</dimen>
     <dimen name="dimen_300">300dp</dimen>
     <dimen name="dimen_15">15dp</dimen>
+    <dimen name="dimen_6">6dp</dimen>
 </resources>
