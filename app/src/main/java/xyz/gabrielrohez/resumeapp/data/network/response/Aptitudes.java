@@ -1,4 +1,4 @@
-package xyz.gabrielrohez.resumeapp.data.network.model.about;
+package xyz.gabrielrohez.resumeapp.data.network.response;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,24 +9,27 @@ public class Aptitudes implements Parcelable {
     @SerializedName("name")
     private String name;
 
-    protected Aptitudes(Parcel in) {
-        name = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(name);
-    }
-
     @Override
     public int describeContents() {
         return 0;
     }
 
-    public static final Creator<Aptitudes> CREATOR = new Creator<Aptitudes>() {
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+    }
+
+    public Aptitudes() {
+    }
+
+    protected Aptitudes(Parcel in) {
+        this.name = in.readString();
+    }
+
+    public static final Parcelable.Creator<Aptitudes> CREATOR = new Parcelable.Creator<Aptitudes>() {
         @Override
-        public Aptitudes createFromParcel(Parcel in) {
-            return new Aptitudes(in);
+        public Aptitudes createFromParcel(Parcel source) {
+            return new Aptitudes(source);
         }
 
         @Override

@@ -12,5 +12,6 @@
     <color name="colorWhiteLight">#CBFFFFFF</color>
     <color name="colorPrimaryRipple">#421958D8</color>
     <color name="colorBackgroundRecycler">#DFDFDF</color>
+    <color name="colorTransparent">#7E000000</color>
 
 </resources>

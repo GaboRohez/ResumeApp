@@ -1,7 +1,10 @@
 package xyz.gabrielrohez.resumeapp.ui.about;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +27,12 @@ import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.fragment.BasicFragment;
 import xyz.gabrielrohez.resumeapp.custom.barChart.MyBarChart;
 import xyz.gabrielrohez.resumeapp.custom.scroll.ObservableScrollView;
-import xyz.gabrielrohez.resumeapp.data.network.charts.DataCharts;
+import xyz.gabrielrohez.resumeapp.data.model.DataCharts;
+import xyz.gabrielrohez.resumeapp.data.network.response.About;
+import xyz.gabrielrohez.resumeapp.data.network.response.Inter_personal;
+import xyz.gabrielrohez.resumeapp.data.network.response.Languages;
+import xyz.gabrielrohez.resumeapp.data.network.response.Skills;
+import xyz.gabrielrohez.resumeapp.data.network.response.Social;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,8 +62,17 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
     @BindView(R.id.barChart)
     BarChart chart;
 
-    public static AboutFragment newInstance() {
+    private About about;
+    private Social social;
+    private Skills skills;
+    private Inter_personal interests;
+
+    public static AboutFragment newInstance(Social social, About about, Skills skills, Inter_personal interests) {
         Bundle args = new Bundle();
+        args.putParcelable("social", social);
+        args.putParcelable("about", about);
+        args.putParcelable("skills", skills);
+        args.putParcelable("interests", interests);
         AboutFragment fragment = new AboutFragment();
         fragment.setArguments(args);
         return fragment;
@@ -64,25 +81,56 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getParcelableData();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
         ButterKnife.bind(this, rootView);
         scrollView.setOnScrollChangedListener(this);   //   for parallax effect
 
-        List<DataCharts> listDataChart = new ArrayList<>();
-        listDataChart.add(new DataCharts("C++", 2f));
-        listDataChart.add(new DataCharts("Java", 3f));
-        listDataChart.add(new DataCharts("Objective C", 0.5f));
-        listDataChart.add(new DataCharts("Git", 1.5f));
-        listDataChart.add(new DataCharts("Kotlin", 0.5f));
+        setAboutData();
+        setSkillsDataInChart();
+        return rootView;
+    }
 
+    /**
+     * the information is shown in the about section
+     */
+    private void setAboutData() {
+        tvName.setText(about.getName());
+        tvLocation.setText(about.getLocation());
+        tvJob.setText(about.getJob());
+        tvEmail.setText(about.getEmail());
+        tvPhone.setText(about.getPhone());
+        tvResume.setText(about.getResume());
+    }
+
+    /**
+     * the information is shown in the chart
+     */
+    private void setSkillsDataInChart() {
+        List<DataCharts> listDataChart = new ArrayList<>();
+        for (Languages languages : skills.getLanguages()){
+            listDataChart.add(new DataCharts(languages.getName(), Float.valueOf(languages.getYoe())));
+        }
         MyBarChart myBarChart = new MyBarChart(chart, getActivity(), listDataChart);
         myBarChart.showBarChart();
-        return rootView;
+    }
+
+    /**
+     * get data from bundle
+     */
+    private void getParcelableData() {
+        social = getArguments().getParcelable("social");
+        about = getArguments().getParcelable("about");
+        skills = getArguments().getParcelable("skills");
+        interests = getArguments().getParcelable("interests");
+        Log.i("ABOUT-social", social.toString());
+        Log.i("ABOUT-about", about.toString());
+        Log.i("ABOUT-skills", skills.toString());
+        Log.i("ABOUT-interests", interests.toString());
     }
 
     /**
@@ -97,16 +145,20 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
 
     @OnClick({R.id.layoutAboutWeb, R.id.layoutAboutPlay, R.id.layoutAboutGit})
     void onViewClicked(View view) {
+        String url = null;
         switch (view.getId()) {
             case R.id.layoutAboutWeb:
-
+                url = social.getWeb();
                 break;
             case R.id.layoutAboutPlay:
-
+                url = social.getPlaystore();
                 break;
             case R.id.layoutAboutGit:
-
+                url = social.getGithub();
                 break;
         }
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 }

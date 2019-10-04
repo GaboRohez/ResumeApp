@@ -2,7 +2,7 @@ package xyz.gabrielrohez.resumeapp.ui.splash.presenter;
 
 import xyz.gabrielrohez.resumeapp.base.activity.BasicUIView;
 import xyz.gabrielrohez.resumeapp.base.presenter.BasicUIPresenter;
-import xyz.gabrielrohez.resumeapp.data.network.model.about.ResponseAbout;
+import xyz.gabrielrohez.resumeapp.data.network.response.MyResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.splash.model.SplashModel;
 import xyz.gabrielrohez.resumeapp.ui.splash.view.SplashView;
 
@@ -23,7 +23,7 @@ public class SplashPresenter extends BasicUIPresenter implements SplashPresenter
     }
 
     @Override
-    public void openProfile(ResponseAbout body) {
+    public void openProfile(MyResumeResponse body) {
         if (view != null)
             view.openProfile(body);
     }

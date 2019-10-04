@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xyz.gabrielrohez.resumeapp.R;
-import xyz.gabrielrohez.resumeapp.data.network.charts.DataCharts;
+import xyz.gabrielrohez.resumeapp.data.model.DataCharts;
 
 public class MyBarChart {
 

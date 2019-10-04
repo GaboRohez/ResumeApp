@@ -37,7 +37,7 @@
                         android:scaleType="centerCrop" />
                 </FrameLayout>
                 <RelativeLayout
-                    android:background="#7E000000"
+                    android:background="@color/colorTransparent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
@@ -45,7 +45,7 @@
                         android:textColor="@color/colorWhite"
                         android:id="@+id/tvAboutName"
                         android:layout_centerInParent="true"
-                        android:text="Jose Gabriel Rodríguez Hernández"/>
+                        android:text="@tools:sample/full_names"/>
                     <LinearLayout
                         android:id="@+id/llAboutHeader"
                         android:layout_centerHorizontal="true"
@@ -64,7 +64,7 @@
                             android:id="@+id/tvAboutLocation"
                             style="@style/caption"
                             android:textColor="@color/colorWhiteLight"
-                            android:text="Ciudad de México, CDMX"/>
+                            android:text="@tools:sample/cities"/>
                     </LinearLayout>
                     <TextView
                         android:id="@+id/tvAboutJob"
@@ -72,7 +72,7 @@
                         android:layout_centerHorizontal="true"
                         style="@style/caption"
                         android:textColor="@color/colorWhiteLight"
-                        android:text="Developer Android"/>
+                        android:text="@string/dummy_job"/>
                 </RelativeLayout>
             </RelativeLayout>
             <!-- body -->
@@ -179,13 +179,13 @@
                         android:id="@+id/tvAboutEmail"
                         android:layout_toRightOf="@+id/ivAboutIconContact"
                         style="@style/body3"
-                        android:text="gabow95k@gmail.com"/>
+                        android:text="@string/dummy_email"/>
                     <TextView
                         android:id="@+id/tvAboutPhone"
                         android:layout_below="@+id/tvAboutEmail"
                         android:layout_toRightOf="@+id/ivAboutIconContact"
                         style="@style/body3"
-                        android:text="7712213158"/>
+                        android:text="@tools:sample/us_phones"/>
                     <View
                         android:id="@+id/viewSeparator"
                         android:layout_marginTop="@dimen/mediumMargin"
@@ -199,7 +199,7 @@
                         android:justificationMode="inter_word"
                         android:layout_below="@+id/viewSeparator"
                         style="@style/body3"
-                        android:text="@string/resume"/>
+                        android:text="@tools:sample/lorem"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 

@@ -1,4 +1,4 @@
-package xyz.gabrielrohez.resumeapp.data.network.charts;
+package xyz.gabrielrohez.resumeapp.data.model;
 
 public class DataCharts {
     private String name;

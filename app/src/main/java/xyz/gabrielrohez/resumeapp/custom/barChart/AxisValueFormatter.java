@@ -5,7 +5,7 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.util.List;
 
-import xyz.gabrielrohez.resumeapp.data.network.charts.DataCharts;
+import xyz.gabrielrohez.resumeapp.data.model.DataCharts;
 
 public class AxisValueFormatter extends ValueFormatter {
 
