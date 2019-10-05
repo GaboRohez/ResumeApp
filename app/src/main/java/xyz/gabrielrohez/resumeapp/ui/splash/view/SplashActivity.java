@@ -5,10 +5,11 @@ import androidx.annotation.Nullable;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.activity.BasicActivity;
-import xyz.gabrielrohez.resumeapp.data.network.model.about.ResponseAbout;
+import xyz.gabrielrohez.resumeapp.data.network.response.MyResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.main.MenuActivity;
 import xyz.gabrielrohez.resumeapp.ui.splash.presenter.SplashPresenter;
 import xyz.gabrielrohez.resumeapp.ui.splash.presenter.SplashPresenterIn;
@@ -27,11 +28,11 @@ public class SplashActivity extends BasicActivity implements SplashView {
     }
 
     @Override
-    public void openProfile(ResponseAbout body) {
+    public void openProfile(MyResumeResponse body) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, MenuActivity.class).putExtra("body", body));
+                startActivity(new Intent(SplashActivity.this, MenuActivity.class).putExtra("body", (Parcelable) body));
                 finish();
             }
         }, 2000);
