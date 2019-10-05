@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -24,6 +25,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xyz.gabrielrohez.resumeapp.R;
+import xyz.gabrielrohez.resumeapp.adapters.AptitudesAdapter;
+import xyz.gabrielrohez.resumeapp.adapters.InterestsAdapter;
 import xyz.gabrielrohez.resumeapp.base.fragment.BasicFragment;
 import xyz.gabrielrohez.resumeapp.custom.barChart.MyBarChart;
 import xyz.gabrielrohez.resumeapp.custom.scroll.ObservableScrollView;
@@ -66,6 +69,9 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
     private Social social;
     private Skills skills;
     private Inter_personal interests;
+    private InterestsAdapter adapter;
+    private AptitudesAdapter adapterAptitudes;
+    private RecyclerView.LayoutManager layoutManager;
 
     public static AboutFragment newInstance(Social social, About about, Skills skills, Inter_personal interests) {
         Bundle args = new Bundle();
@@ -92,7 +98,23 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
 
         setAboutData();
         setSkillsDataInChart();
+        setInterestsRecyclerView();
+        setAptitudesRecyclerView();
         return rootView;
+    }
+
+    /**
+     * get data from bundle
+     */
+    private void getParcelableData() {
+        social = getArguments().getParcelable("social");
+        about = getArguments().getParcelable("about");
+        skills = getArguments().getParcelable("skills");
+        interests = getArguments().getParcelable("interests");
+        Log.i("ABOUT-social", social.toString());
+        Log.i("ABOUT-about", about.toString());
+        Log.i("ABOUT-skills", skills.toString());
+        Log.i("ABOUT-interests", interests.toString());
     }
 
     /**
@@ -120,17 +142,30 @@ public class AboutFragment extends BasicFragment implements ObservableScrollView
     }
 
     /**
-     * get data from bundle
+     * the information is shown in the recyclers
      */
-    private void getParcelableData() {
-        social = getArguments().getParcelable("social");
-        about = getArguments().getParcelable("about");
-        skills = getArguments().getParcelable("skills");
-        interests = getArguments().getParcelable("interests");
-        Log.i("ABOUT-social", social.toString());
-        Log.i("ABOUT-about", about.toString());
-        Log.i("ABOUT-skills", skills.toString());
-        Log.i("ABOUT-interests", interests.toString());
+    private void setInterestsRecyclerView() {
+        adapter = new InterestsAdapter(interests.getInterests());
+        layoutManager = new LinearLayoutManager(getActivity());
+        rvAboutInterest.setNestedScrollingEnabled(false);   //  block scroll in recycer
+        rvAboutInterest.setLayoutManager(layoutManager);
+        rvAboutInterest.setHasFixedSize(true);
+        rvAboutInterest.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+
+    /**
+     * the information is shown in the recyclers
+     */
+    private void setAptitudesRecyclerView() {
+        adapterAptitudes = new AptitudesAdapter(interests.getAptitudes());
+        layoutManager = new LinearLayoutManager(getActivity());
+        rvAboutAptitudes.setNestedScrollingEnabled(false);   //  block scroll in recycer
+        rvAboutAptitudes.setLayoutManager(layoutManager);
+        rvAboutAptitudes.setHasFixedSize(true);
+        rvAboutAptitudes.setAdapter(adapterAptitudes);
+        adapterAptitudes.notifyDataSetChanged();
     }
 
     /**

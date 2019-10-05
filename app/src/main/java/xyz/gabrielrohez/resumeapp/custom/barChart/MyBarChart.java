@@ -55,6 +55,9 @@ public class MyBarChart {
         chart.setDrawGridBackground(false);
         // chart.setDrawYLabels(false);
         //chart.getXAxis().setDrawLabels(false);  //// hide labels bottom
+        chart.animateX(5000); // animate horizontal 3000 milliseconds
+        // or:
+        chart.animateY(5000);
 
         ValueFormatter xAxisFormatter = new AxisValueFormatter(chart, list); // formater to x
 

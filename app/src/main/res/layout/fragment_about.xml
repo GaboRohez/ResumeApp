@@ -78,7 +78,7 @@
             <!-- body -->
 
             <androidx.cardview.widget.CardView
-                app:cardCornerRadius="6dp"
+                app:cardCornerRadius="@dimen/dimen_6"
                 android:layout_margin="@dimen/smallMargin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -86,7 +86,7 @@
                     android:orientation="vertical"
                     android:padding="@dimen/mediumMargin"
                     android:layout_width="match_parent"
-                    android:layout_height="125dp">
+                    android:layout_height="@dimen/dimen_125">
 
                     <TextView
                         style="@style/subtitle3"
@@ -108,8 +108,8 @@
                             android:gravity="center"
                             android:layout_height="match_parent">
                             <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="@dimen/dimen_50"
+                                android:layout_height="@dimen/dimen_50"
                                 android:background="?attr/selectableItemBackground"
                                 android:src="@drawable/icon_web"/>
                             <TextView
@@ -126,8 +126,8 @@
                             android:gravity="center"
                             android:layout_height="match_parent">
                             <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="@dimen/dimen_50"
+                                android:layout_height="@dimen/dimen_50"
                                 android:background="?attr/selectableItemBackground"
                                 android:src="@drawable/icon_play_store"/>
                             <TextView
@@ -146,8 +146,8 @@
                             <ImageView
                                 android:padding="@dimen/dimen_6"
                                 android:background="?attr/selectableItemBackground"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="@dimen/dimen_50"
+                                android:layout_height="@dimen/dimen_50"
                                 android:src="@drawable/icon_github"/>
                             <TextView
                                 style="@style/body3"
@@ -160,7 +160,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                app:cardCornerRadius="6dp"
+                app:cardCornerRadius="@dimen/dimen_6"
                 android:layout_margin="@dimen/smallMargin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -204,7 +204,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                app:cardCornerRadius="6dp"
+                app:cardCornerRadius="@dimen/dimen_6"
                 android:layout_margin="@dimen/smallMargin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -221,7 +221,7 @@
 
                     <com.github.mikephil.charting.charts.BarChart
                         android:id="@+id/barChart"
-                        android:layout_height="200dp"
+                        android:layout_height="@dimen/dimen_200"
                         android:layout_width="match_parent"
                         android:layout_below="@+id/tvAboutTitleYOE"
                         android:layout_marginTop="@dimen/mediumMargin" />
@@ -236,7 +236,7 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
-                    app:cardCornerRadius="6dp"
+                    app:cardCornerRadius="@dimen/dimen_6"
                     android:layout_margin="@dimen/smallMargin"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -245,7 +245,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/mediumMargin"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp">
+                        android:layout_height="wrap_content">
                         <TextView
                             style="@style/subtitle3"
                             android:layout_width="match_parent"
@@ -261,7 +261,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    app:cardCornerRadius="6dp"
+                    app:cardCornerRadius="@dimen/dimen_6"
                     android:layout_margin="@dimen/smallMargin"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -270,7 +270,7 @@
                         android:orientation="vertical"
                         android:padding="@dimen/mediumMargin"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp">
+                        android:layout_height="wrap_content">
                         <TextView
                             style="@style/subtitle3"
                             android:layout_width="match_parent"
