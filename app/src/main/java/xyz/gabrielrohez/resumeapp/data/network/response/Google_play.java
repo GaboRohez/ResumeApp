@@ -1,34 +1,39 @@
-package xyz.gabrielrohez.resumeapp.data.network.model.about;
+package xyz.gabrielrohez.resumeapp.data.network.response;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Google_play implements Parcelable {
     @SerializedName("apps")
     private List<Apps> apps;
 
-    protected Google_play(Parcel in) {
-        apps = in.createTypedArrayList(Apps.CREATOR);
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeTypedList(apps);
-    }
-
     @Override
     public int describeContents() {
         return 0;
     }
 
-    public static final Creator<Google_play> CREATOR = new Creator<Google_play>() {
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeList(this.apps);
+    }
+
+    public Google_play() {
+    }
+
+    protected Google_play(Parcel in) {
+        this.apps = new ArrayList<Apps>();
+        in.readList(this.apps, Apps.class.getClassLoader());
+    }
+
+    public static final Parcelable.Creator<Google_play> CREATOR = new Parcelable.Creator<Google_play>() {
         @Override
-        public Google_play createFromParcel(Parcel in) {
-            return new Google_play(in);
+        public Google_play createFromParcel(Parcel source) {
+            return new Google_play(source);
         }
 
         @Override

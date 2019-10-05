@@ -1,7 +1,7 @@
 package xyz.gabrielrohez.resumeapp.ui.splash.view;
 
-import xyz.gabrielrohez.resumeapp.data.network.model.about.ResponseAbout;
+import xyz.gabrielrohez.resumeapp.data.network.response.MyResumeResponse;
 
 public interface SplashView {
-    void openProfile(ResponseAbout body);
+    void openProfile(MyResumeResponse body);
 }

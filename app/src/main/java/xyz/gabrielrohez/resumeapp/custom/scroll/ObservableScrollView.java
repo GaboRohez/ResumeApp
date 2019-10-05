@@ -1,4 +1,4 @@
-package xyz.gabrielrohez.resumeapp.custom;
+package xyz.gabrielrohez.resumeapp.custom.scroll;
 
 import android.content.Context;
 import android.util.AttributeSet;
