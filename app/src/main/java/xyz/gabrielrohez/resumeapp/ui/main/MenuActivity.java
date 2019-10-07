@@ -12,6 +12,7 @@ import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.activity.BasicActivity;
 import xyz.gabrielrohez.resumeapp.data.network.response.MyResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.about.AboutFragment;
+import xyz.gabrielrohez.resumeapp.ui.education.EducationFragment;
 import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 
 public class MenuActivity extends BasicActivity {
@@ -49,7 +50,7 @@ public class MenuActivity extends BasicActivity {
                     replaceFragment(AboutFragment.newInstance(response.getSocial(), response.getAbout(), response.getSkills(), response.getInter_personal()), AppConstants.TAG_ABOUT_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_school:
-
+                    replaceFragment(EducationFragment.newInstance(), AppConstants.TAG_EDUCATION_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_code:
 

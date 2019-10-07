@@ -3,9 +3,10 @@ package xyz.gabrielrohez.resumeapp.utils;
 import xyz.gabrielrohez.resumeapp.R;
 
 public class AppConstants {
-    public static final String BASE_URL             = "https://raw.githubusercontent.com/SonGabo/ResumeApp/master/jsonfile/";
-    public static final String TAG_SPLASH_DIALOG    = "TAG_SPLASH_DIALOG";
-    public static final String TAG_ABOUT_FRAGMENT   = "TAG_ABOUT_FRAGMENT";
+    public static final String BASE_URL                 = "https://raw.githubusercontent.com/SonGabo/ResumeApp/master/jsonfile/";
+    public static final String TAG_SPLASH_DIALOG        = "TAG_SPLASH_DIALOG";
+    public static final String TAG_ABOUT_FRAGMENT       = "TAG_ABOUT_FRAGMENT";
+    public static final String TAG_EDUCATION_FRAGMENT   = "TAG_EDUCATION_FRAGMENT";
 
 
     // paralax
