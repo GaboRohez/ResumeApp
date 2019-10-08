@@ -50,7 +50,7 @@ public class MenuActivity extends BasicActivity {
                     replaceFragment(AboutFragment.newInstance(response.getSocial(), response.getAbout(), response.getSkills(), response.getInter_personal()), AppConstants.TAG_ABOUT_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_school:
-                    replaceFragment(EducationFragment.newInstance(), AppConstants.TAG_EDUCATION_FRAGMENT, R.id.contentFragment);
+                    replaceFragment(EducationFragment.newInstance(response.getCourses()), AppConstants.TAG_EDUCATION_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_code:
 
