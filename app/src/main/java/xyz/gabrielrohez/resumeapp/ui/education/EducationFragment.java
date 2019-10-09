@@ -67,8 +67,7 @@ public class EducationFragment extends BasicFragment {
      */
     private void setEducationRecyclerView() {
         adapter = new EducationAdapter(courses);
-        layoutManager = new GridLayoutManager(getActivity(), 2);
-        recycler.setNestedScrollingEnabled(false);   //  block scroll in recycer
+        layoutManager = new LinearLayoutManager(getActivity());
         recycler.setLayoutManager(layoutManager);
         recycler.setHasFixedSize(true);
         recycler.setAdapter(adapter);
