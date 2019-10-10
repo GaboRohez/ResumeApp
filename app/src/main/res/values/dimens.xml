@@ -17,6 +17,7 @@
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="dimen_400">400dp</dimen>
     <dimen name="dimen_200">200dp</dimen>
     <dimen name="dimen_250">250dp</dimen>
     <dimen name="dimen_170">170dp</dimen>

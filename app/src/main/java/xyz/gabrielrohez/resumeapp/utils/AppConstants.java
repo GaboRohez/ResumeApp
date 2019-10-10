@@ -58,4 +58,45 @@ public class AppConstants {
             return i;
         }
     }
+
+    /**
+     * PDF files
+     */
+    public enum PDF_FILE {
+        ANDROID("1", "certificado_android.pdf"),
+        JAVA("2", "certificado_java.pdf"),
+        DATABASE("3", "certificado_bd.pdf"),
+        SCHOOL("4", "certificado_escolar.pdf");
+
+        private String id;
+        private String nameInAssets;
+
+        PDF_FILE(String name, String nameInAssets) {
+            this.id = name;
+            this.nameInAssets = nameInAssets;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public String getNameInAssets() {
+            return nameInAssets;
+        }
+
+        public static String getNameFromId(String id) {
+            switch (id){
+                case "1":
+                    return ANDROID.getNameInAssets();
+                case "2":
+                    return JAVA.getNameInAssets();
+                case "3":
+                    return DATABASE.getNameInAssets();
+                case "4":
+                    return SCHOOL.getNameInAssets();
+            }
+            return id;
+        }
+
+    }
 }

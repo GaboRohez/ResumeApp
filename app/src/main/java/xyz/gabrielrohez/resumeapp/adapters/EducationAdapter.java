@@ -3,16 +3,14 @@ package xyz.gabrielrohez.resumeapp.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.barteksc.pdfviewer.PDFView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -20,6 +18,7 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.data.network.response.Courses;
+import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 
 public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.ViewHolder> {
 
@@ -38,10 +37,13 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.output[0].setSelected(true);
+        //  textViews
         holder.output[0].setText(list.get(position).getGrade());
         holder.output[1].setText(list.get(position).getPeriod());
         holder.output[2].setText(list.get(position).getId());
+
+        //  pdf
+        holder.pdf.fromAsset(AppConstants.PDF_FILE.getNameFromId(list.get(position).getId())).load();
     }
 
     @Override
@@ -52,7 +54,8 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.educationPdfView) PDFView pdf;
-        @BindViews({R.id.educationTitle, R.id.educationPeriod, R.id.educationCertId}) AppCompatTextView[] output;
+        @BindView(R.id.educationMenu) ImageButton btnMenu;
+        @BindViews({R.id.educationTitle, R.id.educationPeriod, R.id.educationCertId}) TextView[] output;
 
         ViewHolder(View itemView) {
             super(itemView);
