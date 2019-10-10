@@ -24,9 +24,15 @@ import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.ViewHolder> {
 
     private List<Courses> list;
+    private EducationInterface listener;
 
-    public EducationAdapter(List<Courses> list) {
+    public interface EducationInterface {
+        void ItemViewClick(Courses courses);
+    }
+
+    public EducationAdapter(List<Courses> list, EducationInterface listener) {
         this.list = list;
+        this.listener = listener;
     }
 
     @NonNull
@@ -52,7 +58,7 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.educationImage) ImageView document;
         @BindView(R.id.educationMenu) ImageButton btnMenu;
@@ -61,6 +67,13 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
         ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            listener.ItemViewClick(list.get(getAdapterPosition()));
+
         }
     }
 }

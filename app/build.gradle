@@ -39,8 +39,8 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     //  MPAndroidChart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-    //  AndroidPdfViewerV1
-    implementation 'com.github.barteksc:AndroidPdfViewerV1:1.6.0'
+    //  AndroidPdfViewer
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
     //  retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.1'

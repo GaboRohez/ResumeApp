@@ -24,11 +24,13 @@ import xyz.gabrielrohez.resumeapp.adapters.EducationAdapter;
 import xyz.gabrielrohez.resumeapp.adapters.InterestsAdapter;
 import xyz.gabrielrohez.resumeapp.base.fragment.BasicFragment;
 import xyz.gabrielrohez.resumeapp.data.network.response.Courses;
+import xyz.gabrielrohez.resumeapp.ui.documentVisor.DocumentFragment;
+import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EducationFragment extends BasicFragment {
+public class EducationFragment extends BasicFragment implements EducationAdapter.EducationInterface {
 
     @BindView(R.id.educationRecycler) RecyclerView recycler;
 
@@ -66,11 +68,16 @@ public class EducationFragment extends BasicFragment {
      * the information is shown in the recyclers
      */
     private void setEducationRecyclerView() {
-        adapter = new EducationAdapter(courses);
+        adapter = new EducationAdapter(courses, this);
         layoutManager = new LinearLayoutManager(getActivity());
         recycler.setLayoutManager(layoutManager);
         recycler.setHasFixedSize(true);
         recycler.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void ItemViewClick(Courses courses) {
+        basicView.addFragment(DocumentFragment.newInstance(AppConstants.PDF_FILE.getNameFromId(courses.getImage())), AppConstants.TAG_DOCUMENT_FRAGMENT, R.id.contentFragment);
     }
 }
