@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,7 +44,7 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
         holder.output[2].setText(list.get(position).getId());
 
         //  pdf
-        holder.pdf.fromAsset(AppConstants.PDF_FILE.getNameFromId(list.get(position).getId())).load();
+        holder.document.setImageResource(AppConstants.PDF_FILE.getImageFromId(list.get(position).getImage()));
     }
 
     @Override
@@ -53,7 +54,7 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.educationPdfView) PDFView pdf;
+        @BindView(R.id.educationImage) ImageView document;
         @BindView(R.id.educationMenu) ImageButton btnMenu;
         @BindViews({R.id.educationTitle, R.id.educationPeriod, R.id.educationCertId}) TextView[] output;
 

@@ -63,16 +63,18 @@ public class AppConstants {
      * PDF files
      */
     public enum PDF_FILE {
-        ANDROID("1", "certificado_android.pdf"),
-        JAVA("2", "certificado_java.pdf"),
-        DATABASE("3", "certificado_bd.pdf"),
-        SCHOOL("4", "certificado_escolar.pdf");
+        ANDROID("1", R.drawable.certificado_android, "certificado_android.pdf"),
+        JAVA("2", R.drawable.certificado_java,"certificado_java.pdf"),
+        DATABASE("3", R.drawable.certificado_bd,"certificado_bd.pdf"),
+        SCHOOL("4", R.drawable.certificado_escolar,"certificado_escolar.pdf");
 
         private String id;
+        private int imageResource;
         private String nameInAssets;
 
-        PDF_FILE(String name, String nameInAssets) {
-            this.id = name;
+        PDF_FILE(String id, int imageResource, String nameInAssets) {
+            this.id = id;
+            this.imageResource = imageResource;
             this.nameInAssets = nameInAssets;
         }
 
@@ -82,6 +84,10 @@ public class AppConstants {
 
         public String getNameInAssets() {
             return nameInAssets;
+        }
+
+        public int getImageResource() {
+            return imageResource;
         }
 
         public static String getNameFromId(String id) {
@@ -96,6 +102,20 @@ public class AppConstants {
                     return SCHOOL.getNameInAssets();
             }
             return id;
+        }
+
+        public static int getImageFromId(String id) {
+            switch (id){
+                case "1":
+                    return ANDROID.getImageResource();
+                case "2":
+                    return JAVA.getImageResource();
+                case "3":
+                    return DATABASE.getImageResource();
+                case "4":
+                    return SCHOOL.getImageResource();
+            }
+            return 0;
         }
 
     }
