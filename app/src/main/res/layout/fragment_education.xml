@@ -8,20 +8,6 @@
     android:background="@color/colorBackgroundRecycler"
     tools:context=".ui.education.EducationFragment">
 
-    <LinearLayout
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:background="@color/colorWhite"
-        android:padding="@dimen/dimen_15"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_school"
-            style="@style/h6" />
-    </LinearLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/educationRecycler"
         android:layout_width="match_parent"

@@ -26,4 +26,6 @@
     <string name="year_of_experience">Conocimientos Generales (Años de experiencia)</string>
     <string name="aptitudes">Aptitudes</string>
     <string name="intereses">Intereses</string>
+    <string name="download">Descargar</string>
+    <string name="shared">Compartir</string>
 </resources>

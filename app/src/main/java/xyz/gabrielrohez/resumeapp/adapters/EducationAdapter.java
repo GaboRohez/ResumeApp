@@ -19,6 +19,7 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.data.network.response.Courses;
+import xyz.gabrielrohez.resumeapp.ui.education.EducationFragment;
 import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 
 public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.ViewHolder> {
@@ -28,9 +29,10 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
 
     public interface EducationInterface {
         void ItemViewClick(Courses courses);
+        void MenuOnClick(Courses courses);
     }
 
-    public EducationAdapter(List<Courses> list, EducationInterface listener) {
+    public EducationAdapter(List<Courses> list, EducationInterface listener, EducationFragment educationFragment) {
         this.list = list;
         this.listener = listener;
     }
@@ -49,8 +51,14 @@ public class EducationAdapter extends RecyclerView.Adapter<EducationAdapter.View
         holder.output[1].setText(list.get(position).getPeriod());
         holder.output[2].setText(list.get(position).getId());
 
-        //  pdf
         holder.document.setImageResource(AppConstants.PDF_FILE.getImageFromId(list.get(position).getImage()));
+
+        holder.btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.MenuOnClick(list.get(position));
+            }
+        });
     }
 
     @Override

@@ -127,6 +127,14 @@
         <item name="android:textSize">@dimen/size_small</item>
     </style>
 
+    <style name="body4">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:textSize">@dimen/size_medium</item>
+    </style>
+
     <style name="button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
