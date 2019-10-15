@@ -21,6 +21,23 @@
         <item name="colorControlHighlight">@color/colorPrimaryRipple</item>
     </style>
 
+    <!-- AlertDialog -->
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+
     <style name="Widget.BottomNavigationView"
         parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/work_sans_medium</item>

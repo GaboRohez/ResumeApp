@@ -28,4 +28,8 @@
     <string name="intereses">Intereses</string>
     <string name="download">Descargar</string>
     <string name="shared">Compartir</string>
+    <string name="saved">Saved</string>
+    <string name="faulier">Failed</string>
+    <string name="permission">Permission</string>
+    <string name="permission_description">It is necessary to accept the permissions to store files on your device.</string>
 </resources>

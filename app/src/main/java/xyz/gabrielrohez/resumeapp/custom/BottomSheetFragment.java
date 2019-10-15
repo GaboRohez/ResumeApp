@@ -2,10 +2,14 @@ package xyz.gabrielrohez.resumeapp.custom;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -35,6 +39,7 @@ import butterknife.OnClick;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.data.network.response.Courses;
 import xyz.gabrielrohez.resumeapp.utils.AppConstants;
+import xyz.gabrielrohez.resumeapp.utils.Utils;
 
 import static android.content.ContentValues.TAG;
 
@@ -69,29 +74,19 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bsDownload:
-                if (permissionExternalStorange())
+                if (Utils.checkPermissionExternalStorange(getActivity()))
                     downloadImage(AppConstants.PDF_FILE.getNameFromId(data.getImage()));
                 break;
             case R.id.bsShared:
-                Log.i("BottomSheetFragment", "Shared");
+
                 break;
         }
     }
 
-    private boolean permissionExternalStorange() {
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)){
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
-                return false;
-            } else {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1000);
-                return false;
-            }
-        }else {
-            return true;
-        }
-    }
-
+    /**
+     * Download pdf
+     * @param fileName
+     */
     private void downloadImage(String fileName) {
         String dirtPath = "/storage/emulated/0/ResumeApp";
         File dir = new File(dirtPath);
@@ -107,10 +102,10 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
             File outFile = new File(dirtPath, fileName);
             outputStream = new FileOutputStream(outFile);
             copyFile(inputStream, outputStream);
-            Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.saved), Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(getActivity(), "Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.faulier), Toast.LENGTH_SHORT).show();
         } finally {
             if (inputStream != null){
                 try {
@@ -128,6 +123,11 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 }
             }
         }
+    }
+
+
+    public void shareDrawable(Context context, int resourceId, String fileName) {
+
     }
 
     private void copyFile(InputStream inputStream, OutputStream outputStream) {

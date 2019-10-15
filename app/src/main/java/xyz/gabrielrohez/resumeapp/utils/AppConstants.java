@@ -10,6 +10,10 @@ public class AppConstants {
     public static final String TAG_EDUCATION_FRAGMENT   = "TAG_EDUCATION_FRAGMENT";
 
 
+    //  permission
+    public static final int MY_PERMISSIONS_EXTERNAL_STORANGE   = 100;
+
+
     // paralax
     //  https://stackoverflow.com/questions/26990195/imageview-parallax-as-you-scroll
 
@@ -64,19 +68,21 @@ public class AppConstants {
      * PDF files
      */
     public enum PDF_FILE {
-        ANDROID("1", R.drawable.certificado_android, "certificado_android.pdf"),
-        JAVA("2", R.drawable.certificado_java,"certificado_java.pdf"),
-        DATABASE("3", R.drawable.certificado_bd,"certificado_bd.pdf"),
-        SCHOOL("4", R.drawable.certificado_escolar,"certificado_escolar.pdf");
+        ANDROID("1", R.drawable.certificado_android, "certificado_android.pdf", "certificado_android.png"),
+        JAVA("2", R.drawable.certificado_java,"certificado_java.pdf", "certificado_java.png"),
+        DATABASE("3", R.drawable.certificado_bd,"certificado_bd.pdf", "certificado_bd.png"),
+        SCHOOL("4", R.drawable.certificado_escolar,"certificado_escolar.pdf", "certificado_escolar.png");
 
         private String id;
         private int imageResource;
         private String nameInAssets;
+        private String nameInDrawable;
 
-        PDF_FILE(String id, int imageResource, String nameInAssets) {
+        PDF_FILE(String id, int imageResource, String nameInAssets, String nameInDrawable) {
             this.id = id;
             this.imageResource = imageResource;
             this.nameInAssets = nameInAssets;
+            this.nameInDrawable = nameInDrawable;
         }
 
         public String getId() {
@@ -87,8 +93,26 @@ public class AppConstants {
             return nameInAssets;
         }
 
+        public String getNameInDrawable() {
+            return nameInDrawable;
+        }
+
         public int getImageResource() {
             return imageResource;
+        }
+
+        public static String getNameDrawable(String id) {
+            switch (id){
+                case "1":
+                    return ANDROID.getNameInDrawable();
+                case "2":
+                    return JAVA.getNameInDrawable();
+                case "3":
+                    return DATABASE.getNameInDrawable();
+                case "4":
+                    return SCHOOL.getNameInDrawable();
+            }
+            return id;
         }
 
         public static String getNameFromId(String id) {
