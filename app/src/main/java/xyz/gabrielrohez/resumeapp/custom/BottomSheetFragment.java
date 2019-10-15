@@ -9,9 +9,11 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,11 +28,13 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import butterknife.BindView;
@@ -78,7 +82,8 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                     downloadImage(AppConstants.PDF_FILE.getNameFromId(data.getImage()));
                 break;
             case R.id.bsShared:
-
+                if (Utils.checkPermissionExternalStorange(getActivity()))
+                    sharedPDF(AppConstants.PDF_FILE.getNameFromId(data.getImage()));
                 break;
         }
     }
@@ -126,7 +131,15 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     }
 
 
-    public void shareDrawable(Context context, int resourceId, String fileName) {
+    public void sharedPDF(String fileName) {
+        downloadImage(fileName);
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        Uri phototUri = Uri.parse("/storage/emulated/0/ResumeApp/"+fileName);
+        shareIntent.setData(phototUri);
+        shareIntent.setType("pdf/*");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, phototUri);
+        startActivity(Intent.createChooser(shareIntent, "Share Via"));
 
     }
 
