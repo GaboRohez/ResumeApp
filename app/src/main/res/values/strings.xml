@@ -29,8 +29,11 @@
     <string name="download">Descargar</string>
     <string name="shared">Compartir</string>
     <string name="saved">Saved</string>
+    <string name="file_saved">File saved in the ResumeApp folder</string>
     <string name="faulier">Failed</string>
     <string name="permission">Permission</string>
     <string name="permission_description">It is necessary to accept the permissions to store files on your device.</string>
     <string name="shared_via">Share Via</string>
+    <string name="error_saving_file">Could not save file</string>
+    <string name="rejected_permission">Rejected permission request</string>
 </resources>

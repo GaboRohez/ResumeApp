@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
@@ -61,5 +64,15 @@ public class MenuActivity extends BasicActivity {
             }
             return false;
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.contentFragment);
+        if (fragment != null) {
+            fragment.onRequestPermissionsResult(requestCode&0xff, permissions, grantResults);
+        }
     }
 }
