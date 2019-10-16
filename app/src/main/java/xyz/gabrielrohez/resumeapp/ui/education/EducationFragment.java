@@ -1,7 +1,6 @@
 package xyz.gabrielrohez.resumeapp.ui.education;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -10,13 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +21,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.adapters.EducationAdapter;
-import xyz.gabrielrohez.resumeapp.adapters.InterestsAdapter;
 import xyz.gabrielrohez.resumeapp.base.fragment.BasicFragment;
 import xyz.gabrielrohez.resumeapp.custom.BottomSheetFragment;
 import xyz.gabrielrohez.resumeapp.data.network.response.Courses;
@@ -37,6 +32,7 @@ import xyz.gabrielrohez.resumeapp.utils.AppConstants;
  */
 public class EducationFragment extends BasicFragment implements EducationAdapter.EducationInterface {
 
+    @BindView(R.id.rootSnack) LinearLayout contentSnackBar;
     @BindView(R.id.educationRecycler) RecyclerView recycler;
 
     private List<Courses> courses;
@@ -95,7 +91,7 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
      */
     @Override
     public void MenuOnClick(Courses courses) {
-        BottomSheetFragment bottomSheetFragment = new BottomSheetFragment(courses);
+        BottomSheetFragment bottomSheetFragment = new BottomSheetFragment(courses, contentSnackBar);
         bottomSheetFragment.show(getFragmentManager(), bottomSheetFragment.getTag());
     }
 }

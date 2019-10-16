@@ -1,41 +1,15 @@
 package xyz.gabrielrohez.resumeapp.custom;
 
-import android.Manifest;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.pdf.PdfDocument;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.StrictMode;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import com.google.android.material.snackbar.Snackbar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,15 +19,18 @@ import xyz.gabrielrohez.resumeapp.data.network.response.Courses;
 import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 import xyz.gabrielrohez.resumeapp.utils.Utils;
 
-import static android.content.ContentValues.TAG;
+public class BottomSheetFragment extends BottomSheetDialogFragment implements Utils.SaveImageInDevice.AsyncResponse {
 
-public class BottomSheetFragment extends BottomSheetDialogFragment {
+    private final LinearLayout contentSnackBar;
 
     private Courses data;
+    private Utils.SaveImageInDevice saveImageInDevice = new Utils.SaveImageInDevice(this);
+
     @BindView(R.id.bsTitle) TextView tvTitle;
 
-    public BottomSheetFragment(Courses courses) {
-        data = courses;
+    public BottomSheetFragment(Courses courses, LinearLayout contentSnackBar) {
+        this.data = courses;
+        this.contentSnackBar = contentSnackBar;
     }
 
     @Override
@@ -75,83 +52,33 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     }
 
     @OnClick({R.id.bsDownload, R.id.bsShared})
-    public void onViewClicked(View view) {
+    void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bsDownload:
                 if (Utils.checkPermissionExternalStorange(getActivity()))
-                    downloadImage(AppConstants.PDF_FILE.getNameFromId(data.getImage()));
+                    saveImageInDevice.execute(AppConstants.PDF_FILE.getNameFromId(data.getImage()));
                 break;
             case R.id.bsShared:
                 if (Utils.checkPermissionExternalStorange(getActivity()))
-                    sharedPDF(AppConstants.PDF_FILE.getNameFromId(data.getImage()));
+                    Utils.sharedPDF(AppConstants.PDF_FILE.getNameFromId(data.getImage()));
                 break;
+
         }
+        //  hide dialog
+        getDialog().dismiss();
     }
 
-    /**
-     * Download pdf
-     * @param fileName
-     */
-    private void downloadImage(String fileName) {
-        String dirtPath = "/storage/emulated/0/ResumeApp";
-        File dir = new File(dirtPath);
-        if (!dir.exists())
-            dir.mkdirs();
+    //  process finish SAVE IMAGE IN DEVICE
+    @Override
+    public void processFinish(boolean bool) {
 
-        AssetManager assetManager = getActivity().getAssets();
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
-
-        try {
-            inputStream = assetManager.open(fileName);
-            File outFile = new File(dirtPath, fileName);
-            outputStream = new FileOutputStream(outFile);
-            copyFile(inputStream, outputStream);
-            Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.saved), Toast.LENGTH_SHORT).show();
-        }catch (Exception e){
-            e.printStackTrace();
-            Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.faulier), Toast.LENGTH_SHORT).show();
-        } finally {
-            if (inputStream != null){
-                try {
-                    inputStream.close();
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-
-            if (outputStream != null){
-                try {
-                    outputStream.close();
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
+        if (bool){
+            Snackbar.make(contentSnackBar, "Saved", Snackbar.LENGTH_SHORT).show();
+            Log.i("SAVE-FILE", "onPostExecute(): "+ true);
+        } else {
+            Snackbar.make(contentSnackBar, "Error", Snackbar.LENGTH_SHORT).show();
+            Log.i("SAVE-FILE", "onPostExecute(): "+ false);
         }
-    }
 
-
-    public void sharedPDF(String fileName) {
-        downloadImage(fileName);
-
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        Uri phototUri = Uri.parse("/storage/emulated/0/ResumeApp/"+fileName);
-        shareIntent.setData(phototUri);
-        shareIntent.setType("pdf/*");
-        shareIntent.putExtra(Intent.EXTRA_STREAM, phototUri);
-        startActivity(Intent.createChooser(shareIntent, "Share Via"));
-
-    }
-
-    private void copyFile(InputStream inputStream, OutputStream outputStream) {
-        try {
-            byte[] buffer = new byte[1024];
-            int read;
-            while ((read = inputStream.read(buffer)) != -1){
-                outputStream.write(buffer, 0, read);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 }
