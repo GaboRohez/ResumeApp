@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <TextView
+        style="@style/body4"
+        android:id="@+id/bsTitle"
+        android:drawableLeft="@drawable/ic_document"
+        android:layout_marginLeft="@dimen/dimen_6"
+        android:text="Title Document"
+        android:drawablePadding="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <View
+        android:layout_marginTop="@dimen/dimen_15"
+        android:layout_marginBottom="@dimen/dimen_15"
+        android:background="@color/colorGray"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+    <TextView
+        android:id="@+id/bsDownload"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:padding="@dimen/dimen_6"
+        android:drawableLeft="@drawable/ic_cloud_download"
+        android:drawablePadding="16dp"
+        android:text="@string/download" />
+
+    <TextView
+        android:id="@+id/bsShared"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_6"
+        android:clickable="true"
+        android:drawableLeft="@drawable/ic_person_add"
+        android:drawablePadding="16dp"
+        android:text="@string/shared" />
+
+</LinearLayout>

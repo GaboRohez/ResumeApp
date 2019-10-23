@@ -19,6 +19,31 @@
         <item name="colorPrimaryDark">@color/colorGray</item>
         <item name="colorAccent">@color/colorWhite</item>
         <item name="colorControlHighlight">@color/colorPrimaryRipple</item>
+        <item name="snackbarStyle">@style/MySnackbar</item>
+    </style>
+
+    <!-- SnackBar -->
+    <style name="MySnackbar" parent="@style/Widget.MaterialComponents.Snackbar">
+        <item name="android:layout_marginLeft">18dp</item>
+        <item name="android:layout_marginRight">18dp</item>
+        <item name="android:layout_marginBottom">18dp</item>
+    </style>
+
+    <!-- AlertDialog -->
+    <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:fontFamily">@font/work_sans_medium</item>
     </style>
 
     <style name="Widget.BottomNavigationView"
@@ -125,6 +150,14 @@
         <item name="android:textColor">@color/colorGray</item>
         <item name="android:fontFamily">@font/work_sans</item>
         <item name="android:textSize">@dimen/size_small</item>
+    </style>
+
+    <style name="body4">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:textSize">@dimen/size_medium</item>
     </style>
 
     <style name="button">
