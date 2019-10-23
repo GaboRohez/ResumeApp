@@ -28,7 +28,7 @@ public class Utils {
      *  check permission
      * @return  bool: true or false
      */
-    public static boolean checkPermissionExternalStorange(Activity activity) {
+    public static boolean checkPermissionExternalStorange(Activity activity, int requestCode) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -41,11 +41,11 @@ public class Utils {
                         .setMessage(activity.getResources().getString(R.string.permission_description))
                         .setPositiveButton(activity.getResources().getString(R.string.accept), (dialogInterface, i) -> {
                             //Prompt the user once explanation has been shown
-                            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, AppConstants.MY_PERMISSIONS_EXTERNAL_STORANGE);
+                            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
                         }).create().show();
             } else {
                 // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, AppConstants.MY_PERMISSIONS_EXTERNAL_STORANGE);
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
             }
             return false;
         } else {

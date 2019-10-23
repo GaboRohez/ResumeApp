@@ -41,6 +41,7 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
     @BindView(R.id.rootSnack) LinearLayout contentSnackBar;
     @BindView(R.id.educationRecycler) RecyclerView recycler;
 
+    private String fileNamePDF;
     private List<Courses> courses;
     private Utils.SaveImageInDevice saveImageInDevice = new Utils.SaveImageInDevice(this);
 
@@ -99,13 +100,15 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
         BottomSheetFragment bottomSheetFragment = new BottomSheetFragment(courses, new BottomSheetFragment.ActionsInterface() {
             @Override
             public void downloadFile(String fileName) {
-                if (Utils.checkPermissionExternalStorange(getActivity()))
+                fileNamePDF = fileName;
+                if (Utils.checkPermissionExternalStorange(getActivity(), AppConstants.MY_PERMISSIONS_EXTERNAL_STORANGE_DOWNLOAD))
                     saveImageInDevice.execute(fileName);
             }
 
             @Override
             public void sharedFile(String fileName) {
-                if (Utils.checkPermissionExternalStorange(getActivity()))
+                fileNamePDF = fileName;
+                if (Utils.checkPermissionExternalStorange(getActivity(), AppConstants.MY_PERMISSIONS_EXTERNAL_STORANGE_SHARED))
                     Utils.sharedPDF(fileName, getActivity());
             }
         });
@@ -115,16 +118,31 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == AppConstants.MY_PERMISSIONS_EXTERNAL_STORANGE) {// If request is cancelled, the result arrays are empty.
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // permission was granted, yay! Do the
-                // contacts-related task you need to do.
-            } else {
-                // permission denied, boo! Disable the
-                // functionality that depends on this permission.
-                Snackbar.make(contentSnackBar, AppConfig.getAppContext().getResources().getString(R.string.rejected_permission), Snackbar.LENGTH_LONG).setAction(AppConfig.getAppContext().getResources().getString(R.string.accept), v -> {
-                }).show();
-            }
+        switch (requestCode){
+            case AppConstants.MY_PERMISSIONS_EXTERNAL_STORANGE_DOWNLOAD:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    saveImageInDevice.execute(fileNamePDF);
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Snackbar.make(contentSnackBar, AppConfig.getAppContext().getResources().getString(R.string.rejected_permission), Snackbar.LENGTH_LONG).setAction(AppConfig.getAppContext().getResources().getString(R.string.accept), v -> {
+                    }).show();
+                }
+                break;
+            case AppConstants.MY_PERMISSIONS_EXTERNAL_STORANGE_SHARED:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    Utils.sharedPDF(fileNamePDF, getActivity());
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Snackbar.make(contentSnackBar, AppConfig.getAppContext().getResources().getString(R.string.rejected_permission), Snackbar.LENGTH_LONG).setAction(AppConfig.getAppContext().getResources().getString(R.string.accept), v -> {
+                    }).show();
+                }
+                break;
         }
     }
 

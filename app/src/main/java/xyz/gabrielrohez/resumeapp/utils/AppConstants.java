@@ -12,7 +12,8 @@ public class AppConstants {
 
 
     //  permission
-    public static final int MY_PERMISSIONS_EXTERNAL_STORANGE   = 100;
+    public static final int MY_PERMISSIONS_EXTERNAL_STORANGE_SHARED     = 200;
+    public static final int MY_PERMISSIONS_EXTERNAL_STORANGE_DOWNLOAD   = 100;
 
 
     // paralax
