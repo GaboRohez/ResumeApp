@@ -106,7 +106,7 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
             @Override
             public void sharedFile(String fileName) {
                 if (Utils.checkPermissionExternalStorange(getActivity()))
-                    Utils.sharedPDF(fileName);
+                    Utils.sharedPDF(fileName, getActivity());
             }
         });
         bottomSheetFragment.show(getFragmentManager(), bottomSheetFragment.getTag());
@@ -119,7 +119,6 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // permission was granted, yay! Do the
                 // contacts-related task you need to do.
-                Snackbar.make(contentSnackBar, AppConfig.getAppContext().getResources().getString(R.string.file_saved), Snackbar.LENGTH_LONG).show();
             } else {
                 // permission denied, boo! Disable the
                 // functionality that depends on this permission.
@@ -133,7 +132,7 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
     @Override
     public void processFinish(boolean bool) {
         if (bool){
-            Snackbar.make(contentSnackBar, AppConfig.getAppContext().getResources().getString(R.string.saved), Snackbar.LENGTH_LONG).show();
+            Snackbar.make(contentSnackBar, AppConfig.getAppContext().getResources().getString(R.string.file_saved), Snackbar.LENGTH_LONG).show();
             Log.i("SAVE-FILE", "onPostExecute(): "+ true);
         } else {
             Snackbar.make(contentSnackBar, AppConfig.getAppContext().getResources().getString(R.string.error_saving_file), Snackbar.LENGTH_LONG).setAction(AppConfig.getAppContext().getResources().getString(R.string.accept), null).show();

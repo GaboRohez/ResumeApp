@@ -141,7 +141,7 @@ public class Utils {
      * shared file
      * @param fileName String: name of file
      */
-    public static void sharedPDF(String fileName) {
+    public static void sharedPDF(String fileName, Activity activity) {
         SaveImageInDevice saveImageInDevice = new SaveImageInDevice(bool -> {
             //  process finish
             if (bool){
@@ -150,7 +150,7 @@ public class Utils {
                 shareIntent.setData(phototUri);
                 shareIntent.setType("pdf/*");
                 shareIntent.putExtra(Intent.EXTRA_STREAM, phototUri);
-                AppConfig.getAppContext().startActivity(Intent.createChooser(shareIntent, AppConfig.getAppContext().getResources().getString(R.string.shared_via)));
+                activity.startActivity(Intent.createChooser(shareIntent, AppConfig.getAppContext().getResources().getString(R.string.shared_via)));
 
             } else {
                 Log.i("SHARED-FILE", "onPostExecute(): "+ false);
