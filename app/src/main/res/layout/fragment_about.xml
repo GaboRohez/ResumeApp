@@ -44,8 +44,7 @@
                         style="@style/subtitle2"
                         android:textColor="@color/colorWhite"
                         android:id="@+id/tvAboutName"
-                        android:layout_centerInParent="true"
-                        android:text="@tools:sample/full_names"/>
+                        android:layout_centerInParent="true"/>
                     <LinearLayout
                         android:id="@+id/llAboutHeader"
                         android:layout_centerHorizontal="true"
@@ -56,15 +55,14 @@
                         android:layout_height="wrap_content">
                         <ImageView
                             android:layout_width="@dimen/dimen_15"
-                            android:layout_marginRight="@dimen/smallMargin"
+                            android:layout_marginEnd="@dimen/smallMargin"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_location"
                             android:tint="@color/colorWhite"/>
                         <TextView
                             android:id="@+id/tvAboutLocation"
                             style="@style/caption"
-                            android:textColor="@color/colorWhiteLight"
-                            android:text="@tools:sample/cities"/>
+                            android:textColor="@color/colorWhiteLight"/>
                     </LinearLayout>
                     <TextView
                         android:id="@+id/tvAboutJob"
@@ -93,7 +91,7 @@
                         android:layout_marginBottom="@dimen/smallMargin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Social"/>
+                        android:text="@string/social"/>
 
                     <LinearLayout
                         android:weightSum="3"
@@ -110,11 +108,11 @@
                             <ImageView
                                 android:layout_width="@dimen/dimen_50"
                                 android:layout_height="@dimen/dimen_50"
-                                android:background="?attr/selectableItemBackground"
+                                android:background="?attr/selectableItemBackgroundBorderless"
                                 android:src="@drawable/icon_web"/>
                             <TextView
                                 style="@style/body3"
-                                android:text="Web"
+                                android:text="@string/web"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -128,11 +126,11 @@
                             <ImageView
                                 android:layout_width="@dimen/dimen_50"
                                 android:layout_height="@dimen/dimen_50"
-                                android:background="?attr/selectableItemBackground"
+                                android:background="?attr/selectableItemBackgroundBorderless"
                                 android:src="@drawable/icon_play_store"/>
                             <TextView
                                 style="@style/body3"
-                                android:text="Play Store"
+                                android:text="@string/play_store"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -145,13 +143,13 @@
                             android:layout_height="match_parent">
                             <ImageView
                                 android:padding="@dimen/dimen_6"
-                                android:background="?attr/selectableItemBackground"
+                                android:background="?attr/selectableItemBackgroundBorderless"
                                 android:layout_width="@dimen/dimen_50"
                                 android:layout_height="@dimen/dimen_50"
                                 android:src="@drawable/icon_github"/>
                             <TextView
                                 style="@style/body3"
-                                android:text="Github"
+                                android:text="@string/github"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -170,22 +168,21 @@
                     android:layout_height="wrap_content">
                     <ImageView
                         android:id="@+id/ivAboutIconContact"
-                        android:layout_marginRight="@dimen/mediumMargin"
+                        android:layout_marginEnd="@dimen/mediumMargin"
                         android:tint="@color/colorBlue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_message"/>
                     <TextView
                         android:id="@+id/tvAboutEmail"
-                        android:layout_toRightOf="@+id/ivAboutIconContact"
+                        android:layout_toEndOf="@+id/ivAboutIconContact"
                         style="@style/body3"
                         android:text="@string/dummy_email"/>
                     <TextView
                         android:id="@+id/tvAboutPhone"
                         android:layout_below="@+id/tvAboutEmail"
-                        android:layout_toRightOf="@+id/ivAboutIconContact"
-                        style="@style/body3"
-                        android:text="@tools:sample/us_phones"/>
+                        android:layout_toEndOf="@+id/ivAboutIconContact"
+                        style="@style/body3"/>
                     <View
                         android:id="@+id/viewSeparator"
                         android:layout_marginTop="@dimen/mediumMargin"
@@ -198,8 +195,7 @@
                         android:layout_marginTop="@dimen/smallMargin"
                         android:justificationMode="inter_word"
                         android:layout_below="@+id/viewSeparator"
-                        style="@style/body3"
-                        android:text="@tools:sample/lorem"/>
+                        style="@style/body3"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -217,7 +213,7 @@
                         style="@style/subtitle3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Conocimientos Generales (Años de experiencia)"/>
+                        android:text="@string/year_of_experience"/>
 
                     <com.github.mikephil.charting.charts.BarChart
                         android:id="@+id/barChart"
@@ -250,7 +246,7 @@
                             style="@style/subtitle3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Aptitudes"/>
+                            android:text="@string/aptitudes"/>
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_marginTop="@dimen/smallMargin"
                             android:id="@+id/rvAboutAptitudes"
@@ -275,7 +271,7 @@
                             style="@style/subtitle3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Intereses"/>
+                            android:text="@string/intereses"/>
                         <androidx.recyclerview.widget.RecyclerView
                             android:layout_marginTop="@dimen/smallMargin"
                             android:id="@+id/rvAboutInterest"

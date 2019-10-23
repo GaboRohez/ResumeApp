@@ -37,7 +37,7 @@ public class BasicActivity extends AppCompatActivity implements BasicView, Basic
     public void addFragment(Fragment fragment, String TAG, int id) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+        fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
         //fragmentTransaction.setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up, R.anim.slide_in_bottom,R.anim.slide_out_bottom );
         fragmentManager.addOnBackStackChangedListener(this);
         fragmentTransaction.replace(id, fragment, TAG);
