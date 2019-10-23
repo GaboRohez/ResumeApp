@@ -5,6 +5,7 @@ import xyz.gabrielrohez.resumeapp.R;
 public class AppConstants {
     public static final String BASE_URL                 = "https://raw.githubusercontent.com/SonGabo/ResumeApp/master/jsonfile/";
     public static final String PATH_APP                 = "/storage/emulated/0/ResumeApp/";
+    public static final String TAG_APPS_FRAGMENT        = "TAG_APPS_FRAGMENT";
     public static final String TAG_SPLASH_DIALOG        = "TAG_SPLASH_DIALOG";
     public static final String TAG_ABOUT_FRAGMENT       = "TAG_ABOUT_FRAGMENT";
     public static final String TAG_DOCUMENT_FRAGMENT    = "TAG_DOCUMENT_FRAGMENT";
