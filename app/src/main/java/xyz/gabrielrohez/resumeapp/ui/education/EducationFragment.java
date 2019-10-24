@@ -73,7 +73,7 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
     }
 
     /**
-     * the information is shown in the recyclers
+     * the information is shown in the recycler
      */
     private void setEducationRecyclerView() {
         EducationAdapter adapter = new EducationAdapter(courses, this, this);

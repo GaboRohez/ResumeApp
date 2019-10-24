@@ -5,6 +5,7 @@ import xyz.gabrielrohez.resumeapp.R;
 public class AppConstants {
     public static final String BASE_URL                 = "https://raw.githubusercontent.com/SonGabo/ResumeApp/master/jsonfile/";
     public static final String PATH_APP                 = "/storage/emulated/0/ResumeApp/";
+    public static final String URL_PLAY_STORE           = "https://play.google.com/store/apps/dev?id=5223529151025295341";
     public static final String TAG_APPS_FRAGMENT        = "TAG_APPS_FRAGMENT";
     public static final String TAG_SPLASH_DIALOG        = "TAG_SPLASH_DIALOG";
     public static final String TAG_ABOUT_FRAGMENT       = "TAG_ABOUT_FRAGMENT";
@@ -67,6 +68,69 @@ public class AppConstants {
         }
     }
 
+    /**
+     * Apps enum
+     */
+    public enum APPS {
+        ECOBICI(1, R.drawable.ecobici),
+        CV(2, R.drawable.cv),
+        SHOWCITY(3, R.drawable.show_me_city),
+        PRIMARIO(4, R.drawable.primario),
+        CHALUPAS(5, R.drawable.chalupas),
+        NETWORKED(6, R.drawable.networked),
+        BINARIO(7, R.drawable.ic_camera),
+        CESAR(8, R.drawable.cesar_pro),
+        PRIMOS(9, R.drawable.numeros_primos),
+        TMDB(10, R.drawable.tmdb),
+        CAR(11, R.drawable.ic_run),
+        POLIBIO(12, R.drawable.polibio);
+
+        private int id;
+        private int image;
+
+        APPS(int id, int image) {
+            this.id = id;
+            this.image = image;
+        }
+
+        public int getImage() {
+            return image;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public static int getImage(int id){
+            switch (id){
+                case 1:
+                    return ECOBICI.getImage();
+                case 2:
+                    return CV.getImage();
+                case 3:
+                    return SHOWCITY.getImage();
+                case 4:
+                    return PRIMARIO.getImage();
+                case 5:
+                    return CHALUPAS.getImage();
+                case 6:
+                    return NETWORKED.getImage();
+                case 7:
+                    return BINARIO.getImage();
+                case 8:
+                    return CESAR.getImage();
+                case 9:
+                    return PRIMOS.getImage();
+                case 10:
+                    return TMDB.getImage();
+                case 11:
+                    return CAR.getImage();
+                case 12:
+                    return POLIBIO.getImage();
+            }
+            return 0;
+        }
+    }
     /**
      * PDF files
      */
