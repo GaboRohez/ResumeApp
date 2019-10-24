@@ -81,7 +81,7 @@ public class AppConstants {
         CESAR(7, R.drawable.cesar_pro),
         PRIMOS(8, R.drawable.numeros_primos),
         TMDB(9, R.drawable.tmdb),
-        CAR(10, R.drawable.ic_run),
+        CAR(10, R.drawable.wheres_car),
         POLIBIO(11, R.drawable.polibio);
 
         private int id;
