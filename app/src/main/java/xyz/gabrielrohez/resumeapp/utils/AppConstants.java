@@ -75,15 +75,14 @@ public class AppConstants {
         ECOBICI(1, R.drawable.ecobici),
         CV(2, R.drawable.cv),
         SHOWCITY(3, R.drawable.show_me_city),
-        PRIMARIO(4, R.drawable.primario),
+        BINARIO(4, R.drawable.primario),
         CHALUPAS(5, R.drawable.chalupas),
         NETWORKED(6, R.drawable.networked),
-        BINARIO(7, R.drawable.ic_camera),
-        CESAR(8, R.drawable.cesar_pro),
-        PRIMOS(9, R.drawable.numeros_primos),
-        TMDB(10, R.drawable.tmdb),
-        CAR(11, R.drawable.ic_run),
-        POLIBIO(12, R.drawable.polibio);
+        CESAR(7, R.drawable.cesar_pro),
+        PRIMOS(8, R.drawable.numeros_primos),
+        TMDB(9, R.drawable.tmdb),
+        CAR(10, R.drawable.ic_run),
+        POLIBIO(11, R.drawable.polibio);
 
         private int id;
         private int image;
@@ -110,22 +109,20 @@ public class AppConstants {
                 case 3:
                     return SHOWCITY.getImage();
                 case 4:
-                    return PRIMARIO.getImage();
+                    return BINARIO.getImage();
                 case 5:
                     return CHALUPAS.getImage();
                 case 6:
                     return NETWORKED.getImage();
                 case 7:
-                    return BINARIO.getImage();
-                case 8:
                     return CESAR.getImage();
-                case 9:
+                case 8:
                     return PRIMOS.getImage();
-                case 10:
+                case 9:
                     return TMDB.getImage();
-                case 11:
+                case 10:
                     return CAR.getImage();
-                case 12:
+                case 11:
                     return POLIBIO.getImage();
             }
             return 0;
