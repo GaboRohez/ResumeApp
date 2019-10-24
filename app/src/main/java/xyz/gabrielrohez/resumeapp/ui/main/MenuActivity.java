@@ -57,7 +57,7 @@ public class MenuActivity extends BasicActivity {
                     replaceFragment(EducationFragment.newInstance(response.getCourses()), AppConstants.TAG_EDUCATION_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_code:
-                    replaceFragment(AppsFragment.newInstance(), AppConstants.TAG_APPS_FRAGMENT, R.id.contentFragment);
+                    replaceFragment(AppsFragment.newInstance(response.getGoogle_play().getApps()), AppConstants.TAG_APPS_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_work:
 

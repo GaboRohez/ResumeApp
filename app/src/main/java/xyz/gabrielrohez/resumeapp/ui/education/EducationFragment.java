@@ -65,7 +65,7 @@ public class EducationFragment extends BasicFragment implements EducationAdapter
     }
 
     /**
-     * get data from intent
+     * get data from bundle
      */
     private void getParcelableData() {
         courses = getArguments().getParcelableArrayList("courses");
