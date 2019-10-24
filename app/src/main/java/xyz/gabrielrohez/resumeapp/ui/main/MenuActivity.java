@@ -15,6 +15,7 @@ import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.base.activity.BasicActivity;
 import xyz.gabrielrohez.resumeapp.data.network.response.MyResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.about.AboutFragment;
+import xyz.gabrielrohez.resumeapp.ui.apps.AppsFragment;
 import xyz.gabrielrohez.resumeapp.ui.education.EducationFragment;
 import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 
@@ -56,7 +57,7 @@ public class MenuActivity extends BasicActivity {
                     replaceFragment(EducationFragment.newInstance(response.getCourses()), AppConstants.TAG_EDUCATION_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_code:
-
+                    replaceFragment(AppsFragment.newInstance(response.getGoogle_play().getApps()), AppConstants.TAG_APPS_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_work:
 

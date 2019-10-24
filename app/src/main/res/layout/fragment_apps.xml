@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:weightSum="10"
+    android:orientation="vertical"
+    android:background="@color/colorBackgroundRecycler"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.apps.AppsFragment">
+
+    <RelativeLayout
+        android:elevation="@dimen/smallMargin"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.8">
+        <ImageView
+            android:id="@+id/appsGooglePlay"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_play_store"
+            android:layout_width="@dimen/dimen_70"
+            android:layout_height="@dimen/dimen_70"/>
+        <TextView
+            android:layout_below="@id/appsGooglePlay"
+            android:layout_centerHorizontal="true"
+            style="@style/body2"
+            android:text="@string/play_store_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/appRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.2"/>
+</LinearLayout>
