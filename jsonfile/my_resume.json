@@ -98,10 +98,6 @@
       {
       "name": "Git",
       "yoe": "1.5"
-      },
-      {
-      "name": "Kotlin",
-      "yoe": ".6"
       }
     ]
   },
@@ -187,7 +183,7 @@
     }
   ],"experience": [{
     "name": "Global Hitss",
-    "job": "Developer Android",
+    "job": "Android Developer",
     "period": "Jan. 2017 - Present",
     "latitude": "19.359348",
     "longitude": "-99.172122",
@@ -200,7 +196,7 @@
   },
   {
     "name": "Sferea Studios",
-    "job": "Developer iOS",
+    "job": "iOS Developer",
     "period": "May. 2017 - Oct. 2017",
     "latitude": "19.355807",
     "longitude": "-99.186855",
