@@ -37,4 +37,7 @@
     <string name="error_saving_file">Could not save file</string>
     <string name="rejected_permission">Rejected permission request</string>
     <string name="play_store_profile">Play Store Profile</string>
+    <string name="job">Job:</string>
+    <string name="period">Period:</string>
+    <string name="name">Name:</string>
 </resources>
