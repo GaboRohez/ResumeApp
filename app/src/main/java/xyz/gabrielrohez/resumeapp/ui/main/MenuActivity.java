@@ -17,6 +17,7 @@ import xyz.gabrielrohez.resumeapp.data.network.response.MyResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.about.AboutFragment;
 import xyz.gabrielrohez.resumeapp.ui.apps.AppsFragment;
 import xyz.gabrielrohez.resumeapp.ui.education.EducationFragment;
+import xyz.gabrielrohez.resumeapp.ui.experience.ExperienceFragment;
 import xyz.gabrielrohez.resumeapp.utils.AppConstants;
 
 public class MenuActivity extends BasicActivity {
@@ -60,7 +61,7 @@ public class MenuActivity extends BasicActivity {
                     replaceFragment(AppsFragment.newInstance(response.getGoogle_play().getApps()), AppConstants.TAG_APPS_FRAGMENT, R.id.contentFragment);
                     return true;
                 case R.id.navigation_work:
-
+                    replaceFragment(ExperienceFragment.newInstance(response.getExperience()), AppConstants.TAG_APPS_EXPERIENCE, R.id.contentFragment);
                     return true;
             }
             return false;
