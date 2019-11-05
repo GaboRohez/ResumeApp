@@ -176,8 +176,7 @@
                     <TextView
                         android:id="@+id/tvAboutEmail"
                         android:layout_toEndOf="@+id/ivAboutIconContact"
-                        style="@style/body3"
-                        android:text="@string/dummy_email"/>
+                        style="@style/body3"/>
                     <TextView
                         android:id="@+id/tvAboutPhone"
                         android:layout_below="@+id/tvAboutEmail"

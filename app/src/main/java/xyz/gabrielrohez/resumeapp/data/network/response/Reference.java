@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName;
 public class Reference implements Parcelable {
     @SerializedName("job")
     private String job;
-    @SerializedName("url")
-    private String url;
+    @SerializedName("phone")
+    private String phone;
     @SerializedName("name")
     private String name;
 
@@ -21,7 +21,7 @@ public class Reference implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.job);
-        dest.writeString(this.url);
+        dest.writeString(this.phone);
         dest.writeString(this.name);
     }
 
@@ -30,7 +30,7 @@ public class Reference implements Parcelable {
 
     protected Reference(Parcel in) {
         this.job = in.readString();
-        this.url = in.readString();
+        this.phone = in.readString();
         this.name = in.readString();
     }
 
@@ -54,12 +54,12 @@ public class Reference implements Parcelable {
         this.job = job;
     }
 
-    public String getUrl() {
-        return url;
+    public String getphone() {
+        return phone;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setphone(String phone) {
+        this.phone = phone;
     }
 
     public String getName() {
@@ -74,7 +74,7 @@ public class Reference implements Parcelable {
     public String toString() {
         return "Reference{" +
                 "job='" + job + '\'' +
-                ", url='" + url + '\'' +
+                ", phone='" + phone + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }
