@@ -4,8 +4,8 @@
     "email": "gabow95k@gmail.com",
     "phone": "7712213158",
     "job": "Developer Android",
-    "location": "Ciudad de México, CDMX",
-    "resume": "Desarrollador móvil con tres años de experiencia en el entorno Android y seis meses con iOS. Creo que es importante desarrollar aplicaciones intuitivas para el usuario, con un diseño simple y responsivo para las distintas resoluciones que se manejan actualmente en los dispositivos móviles ademas de generar un código altamente legible y fácil de mantener.Procuro mantenerme a la vanguardia con las nuevas tecnologías para poder usarlas como herramientas que me permitan crecer profesionalmente y superarme en esta industria de software que se encuentra en un constante cambio. Persona responsable, comprometida, creativa y puntual."
+    "location": "Mexico City, CDMX",
+    "resume": "Mobile developer with three years of experience in the Android environment and six months with iOS. I think it is important to develop intuitive applications for the user, with a simple and responsive design for the different resolutions that are currently handled on mobile devices in addition to generating a highly readable and easy to maintain code. I try to stay at the forefront with new technologies to be able to use them as tools that allow me to grow professionally and improve myself in this software industry that is constantly changing. Responsible, committed, creative and punctual person."
   },
   "social": {
     "web": "https://gabrielrohez.xyz/",
@@ -111,25 +111,25 @@
       "name": "Responsable"
       },
       {
-      "name": "Honesto"
+      "name": "Honest"
       },
       {
-      "name": "Creativo"
+      "name": "Creative"
       },
       {
-      "name": "Trabajo en equipo"
+      "name": "Teamwork"
       },
       {
-      "name": "Perseverancia"
+      "name": "Perseverance"
       },
       {
-      "name": "Puntualidad"
+      "name": "Puntuality"
       },
       {
-      "name": "Compromiso"
+      "name": "Committed"
       },
       {
-      "name": "Facilidad de aprendizaje"
+      "name": "Learning facility"
       }
     ],
     "interests": [{
@@ -145,27 +145,27 @@
       "icon": 3
       },
       {
-      "name": "Fotografia",
+      "name": "Photography",
       "icon": 4
       },
       {
-      "name": "Video Juegos",
+      "name": "Video Games",
       "icon": 5
       },
       {
-      "name": "Viajar",
+      "name": "To travel",
       "icon": 6
       }
     ]
   }, "courses": [{
-    "institute": "Universidad Autónoma del Estado de Hidalgo",
-    "grade": "Lic. en Ciencias Computacionales",
+    "institute": "Autonomous University of the State of Hidalgo",
+    "grade": "Computer Science",
     "period": "Jul. 2013 - Nov. 2017",
-    "id": "EGRESADO",
+    "id": "GRADUATED",
     "image": "4"
   },
     {
-      "institute": "OMNIUS Soluciones en Tecnología",
+      "institute": "OMNIUS Technology Solutions",
       "grade": "Android Certified Professional Exam",
       "period": "May. 2016 - Aug. 2016",
       "id": "CERT ID: 1609159925023",
@@ -173,7 +173,7 @@
     },
     {
       "institute": "Develop Talent & Technology",
-      "grade": "Fundamentos de programación en Java",
+      "grade": "Java Programming Fundamentals",
       "period": "Aug. 2016",
       "id": "CERT ID: DEV-FPJ-111-01299",
       "image": "2"
@@ -182,7 +182,7 @@
       "institute": "Microsoft Technology Associate",
       "grade": "Database Fundamentals",
       "period": "Dec. 2014",
-      "id": "Microsoft, Licencia F057-9777",
+      "id": "Microsoft, License F057-9777",
       "image": "3"
     }
   ],"experience": [{
@@ -193,9 +193,9 @@
     "longitude": "-99.172122",
     "id": 1,
     "reference": {
-      "name": "Sergio",
-      "url": "5510293948",
-      "job": "lider proyecto"
+      "name": "Sergio Arellano",
+      "phone": "5510293948",
+      "job": "Project leader"
     }
   },
   {
@@ -207,8 +207,8 @@
     "id": 1,
     "reference": {
       "name": "Diana Isabel Rojas",
-      "url": "5540563393",
-      "job": "lider proyecto"
+      "phone": "5540563393",
+      "job": "Project leader"
     }
   }]
 }
