@@ -1,3 +1,5 @@
+*.apk
+apk/
 *.iml
 .gradle
 /local.properties

@@ -9,6 +9,7 @@ public class AppConstants {
     public static final String TAG_APPS_FRAGMENT        = "TAG_APPS_FRAGMENT";
     public static final String TAG_SPLASH_DIALOG        = "TAG_SPLASH_DIALOG";
     public static final String TAG_ABOUT_FRAGMENT       = "TAG_ABOUT_FRAGMENT";
+    public static final String TAG_APPS_EXPERIENCE      = "TAG_APPS_EXPERIENCE";
     public static final String TAG_DOCUMENT_FRAGMENT    = "TAG_DOCUMENT_FRAGMENT";
     public static final String TAG_EDUCATION_FRAGMENT   = "TAG_EDUCATION_FRAGMENT";
 
