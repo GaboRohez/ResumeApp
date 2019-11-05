@@ -37,7 +37,7 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
         holder.tvPeriod.setText(list.get(position).getPeriod());
         holder.tvRJob.setText(list.get(position).getReference().getJob());
         holder.tvRName.setText(list.get(position).getReference().getName());
-        holder.tvRPhone.setText(list.get(position).getReference().getUrl());
+        holder.tvRPhone.setText(list.get(position).getReference().getphone());
     }
 
     @Override
