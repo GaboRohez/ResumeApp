@@ -11,15 +11,13 @@
     <TextView
         style="@style/body4"
         android:id="@+id/bsTitle"
-        android:drawableLeft="@drawable/ic_document"
-        android:layout_marginLeft="@dimen/dimen_6"
-        android:text="Title Document"
+        android:drawableStart="@drawable/ic_document"
+        android:layout_marginStart="@dimen/dimen_6"
         android:drawablePadding="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <View
         android:layout_marginTop="@dimen/dimen_15"
-        android:layout_marginBottom="@dimen/dimen_15"
         android:background="@color/colorGray"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"/>
@@ -27,10 +25,12 @@
         android:id="@+id/bsDownload"
         android:background="?attr/selectableItemBackground"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dimen_48"
+        android:gravity="center_vertical"
         android:clickable="true"
+        android:focusable="true"
         android:padding="@dimen/dimen_6"
-        android:drawableLeft="@drawable/ic_cloud_download"
+        android:drawableStart="@drawable/ic_cloud_download"
         android:drawablePadding="16dp"
         android:text="@string/download" />
 
@@ -38,10 +38,12 @@
         android:id="@+id/bsShared"
         android:background="?attr/selectableItemBackground"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dimen_48"
+        android:gravity="center_vertical"
         android:padding="@dimen/dimen_6"
         android:clickable="true"
-        android:drawableLeft="@drawable/ic_person_add"
+        android:focusable="true"
+        android:drawableStart="@drawable/ic_person_add"
         android:drawablePadding="16dp"
         android:text="@string/shared" />
 

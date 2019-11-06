@@ -84,13 +84,14 @@
                     android:orientation="vertical"
                     android:padding="@dimen/mediumMargin"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_125">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         style="@style/subtitle3"
                         android:layout_marginBottom="@dimen/smallMargin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:baselineAligned="false"
                         android:text="@string/social"/>
 
                     <LinearLayout

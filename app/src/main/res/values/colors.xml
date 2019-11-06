@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorRed">#F03D46</color>
     <color name="colorBlue">#1958D8</color>
-    <color name="colorBlueLight">#E1F5FE</color>
     <color name="colorGray">#3D3D3D</color>
     <color name="colorBlack">#1B1B1B</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorGreen">#9CAC26</color>
-    <color name="colorOrange">#F1722B</color>
     <color name="colorGrayLight">#878787</color>
-    <color name="colorGrayDoubleLight">#F0F0F0</color>
     <color name="colorWhiteLight">#CBFFFFFF</color>
     <color name="colorPrimaryRipple">#421958D8</color>
     <color name="colorBackgroundRecycler">#EEF1F0</color>

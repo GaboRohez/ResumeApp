@@ -27,7 +27,7 @@
                     android:id="@+id/itemAppTitle"
                     android:layout_centerInParent="true"
                     style="@style/subtitle2"
-                    android:text="Ecobici MX"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </RelativeLayout>
