@@ -24,7 +24,7 @@
     <TextView
         android:id="@+id/textView"
         style="@style/h5"
-        android:text="Gabriel Resume App"
+        android:text="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
