@@ -35,8 +35,8 @@
             android:src="@drawable/ic_more"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dimen_48"
+            android:layout_height="@dimen/dimen_48"
             android:contentDescription="@string/button_to_show_action_options" />
     </RelativeLayout>
     <androidx.cardview.widget.CardView
