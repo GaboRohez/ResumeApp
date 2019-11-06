@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:clickable="true"
+    android:focusable="true"
     android:background="@color/colorBackgroundRecycler"
     tools:context=".ui.documentVisor.DocumentFragment">
     <LinearLayout

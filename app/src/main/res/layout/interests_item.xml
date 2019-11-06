@@ -13,8 +13,8 @@
         android:id="@+id/itemInterestTitle"
         style="@style/body3"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/size_small"
-        android:layout_toRightOf="@+id/itemInterestImage"
+        android:layout_marginStart="@dimen/size_small"
+        android:layout_toEndOf="@+id/itemInterestImage"
         android:text="@tools:sample/full_names"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

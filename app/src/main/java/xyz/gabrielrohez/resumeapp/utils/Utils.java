@@ -147,8 +147,7 @@ public class Utils {
             if (bool){
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 Uri phototUri = Uri.parse(AppConstants.PATH_APP+fileName);
-                shareIntent.setData(phototUri);
-                shareIntent.setType("pdf/*");
+                shareIntent.setDataAndType(phototUri, "pdf/*");
                 shareIntent.putExtra(Intent.EXTRA_STREAM, phototUri);
                 activity.startActivity(Intent.createChooser(shareIntent, AppConfig.getAppContext().getResources().getString(R.string.shared_via)));
 

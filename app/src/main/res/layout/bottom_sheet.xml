@@ -11,9 +11,8 @@
     <TextView
         style="@style/body4"
         android:id="@+id/bsTitle"
-        android:drawableLeft="@drawable/ic_document"
-        android:layout_marginLeft="@dimen/dimen_6"
-        android:text="Title Document"
+        android:drawableStart="@drawable/ic_document"
+        android:layout_marginStart="@dimen/dimen_6"
         android:drawablePadding="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -29,8 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:padding="@dimen/dimen_6"
-        android:drawableLeft="@drawable/ic_cloud_download"
+        android:drawableStart="@drawable/ic_cloud_download"
         android:drawablePadding="16dp"
         android:text="@string/download" />
 
@@ -41,7 +41,8 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/dimen_6"
         android:clickable="true"
-        android:drawableLeft="@drawable/ic_person_add"
+        android:focusable="true"
+        android:drawableStart="@drawable/ic_person_add"
         android:drawablePadding="16dp"
         android:text="@string/shared" />
 

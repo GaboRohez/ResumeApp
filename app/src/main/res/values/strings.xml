@@ -16,7 +16,7 @@
     <string name="dummy_job">Job</string>
     <string name="icon_from_card">ICON FROM CARD</string>
     <string name="image_from_document">IMAGE FROM DOCUMENT</string>
-    <string name="button_to_show_action_options">BUTTON TO SHOW ACTION OPTIONS</string>
+    <string name="button_to_show_action_options">SHOW ACTION OPTIONS</string>
     <string name="social">Social</string>
     <string name="web">Web</string>
     <string name="play_store">Play Store</string>
@@ -26,9 +26,7 @@
     <string name="intereses">Interests</string>
     <string name="download">Download</string>
     <string name="shared">Share</string>
-    <string name="saved">Saved</string>
     <string name="file_saved">File saved in the ResumeApp folder</string>
-    <string name="faulier">Failed</string>
     <string name="permission">Permission</string>
     <string name="permission_description">It is necessary to accept the permissions to store files on your device.</string>
     <string name="shared_via">Share Via</string>
@@ -38,4 +36,7 @@
     <string name="job">Job:</string>
     <string name="period">Period:</string>
     <string name="name">Name:</string>
+    <string name="representative_image_of_google_play">representative image of google play</string>
+    <string name="reference">Reference</string>
+    <string name="phone">Phone:</string>
 </resources>
