@@ -1,40 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="smallMargin">5dp</dimen>
-    <dimen name="mediumMargin">11dp</dimen>
-    <!-- size text -->
-    <dimen name="size_h1">93sp</dimen>
-    <dimen name="size_h2">57sp</dimen>
-    <dimen name="size_h3">45sp</dimen>
-    <dimen name="size_h4">29sp</dimen>
-    <dimen name="size_h5">19sp</dimen>
-    <dimen name="size_h6">17sp</dimen>
-    <dimen name="size_xlarge">15sp</dimen>
-    <dimen name="size_large">13sp</dimen>
-    <dimen name="size_medium">11sp</dimen>
-    <dimen name="size_small">9sp</dimen>
-
-    <dimen name="activity_horizontal_margin">13dp</dimen>
-    <dimen name="activity_vertical_margin">13dp</dimen>
-    <dimen name="dimen_450">447dp</dimen>
-    <dimen name="dimen_400">397dp</dimen>
-    <dimen name="dimen_250">247dp</dimen>
-    <dimen name="dimen_200">197dp</dimen>
-    <dimen name="dimen_170">167dp</dimen>
-    <dimen name="dimen_150">147dp</dimen>
-    <dimen name="dimen_100">97dp</dimen>
-    <dimen name="dimen_300">297dp</dimen>
-    <dimen name="dimen_70">67dp</dimen>
-    <dimen name="dimen_50">47dp</dimen>
-    <dimen name="dimen_48">45dp</dimen>
-    <dimen name="dimen_30">27dp</dimen>
-    <dimen name="dimen_15">12dp</dimen>
-    <dimen name="dimen_8">5dp</dimen>
-    <dimen name="dimen_6">3dp</dimen>
-
-    <dimen name="dimen_125">122dp</dimen>
-
-    <dimen name="corner_6">3dp</dimen>
-    <dimen name="corner_8">5dp</dimen>
 </resources>
