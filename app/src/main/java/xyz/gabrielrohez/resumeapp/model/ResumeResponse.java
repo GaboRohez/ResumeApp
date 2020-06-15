@@ -1,9 +1,12 @@
 package xyz.gabrielrohez.resumeapp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class ResumeResponse{
+public class ResumeResponse implements Parcelable {
 
 	@SerializedName("skills")
 	private List<SkillsItem> skills;
@@ -25,6 +28,40 @@ public class ResumeResponse{
 
 	@SerializedName("apps")
 	private List<AppsItem> apps;
+
+	protected ResumeResponse(Parcel in) {
+		courses = in.createTypedArrayList(CoursesItem.CREATOR);
+		interPersonal = in.readParcelable(InterPersonal.class.getClassLoader());
+		about = in.readParcelable(About.class.getClassLoader());
+		experience = in.createTypedArrayList(ExperienceItem.CREATOR);
+		apps = in.createTypedArrayList(AppsItem.CREATOR);
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeTypedList(courses);
+		dest.writeParcelable(interPersonal, flags);
+		dest.writeParcelable(about, flags);
+		dest.writeTypedList(experience);
+		dest.writeTypedList(apps);
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	public static final Creator<ResumeResponse> CREATOR = new Creator<ResumeResponse>() {
+		@Override
+		public ResumeResponse createFromParcel(Parcel in) {
+			return new ResumeResponse(in);
+		}
+
+		@Override
+		public ResumeResponse[] newArray(int size) {
+			return new ResumeResponse[size];
+		}
+	};
 
 	public List<SkillsItem> getSkills(){
 		return skills;
