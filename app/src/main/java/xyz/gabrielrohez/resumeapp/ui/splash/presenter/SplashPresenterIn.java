@@ -8,5 +8,6 @@ public interface SplashPresenterIn {
 
     interface Presenter{
 
+        void getResumeInfo();
     }
 }

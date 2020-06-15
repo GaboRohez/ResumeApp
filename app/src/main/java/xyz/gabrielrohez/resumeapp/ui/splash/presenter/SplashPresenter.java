@@ -13,4 +13,9 @@ public class SplashPresenter implements SplashPresenterIn.Listener, SplashPresen
         this.view = view;
         interactor = new SplashInteractor();
     }
+
+    @Override
+    public void getResumeInfo() {
+        interactor.getResumeInfo(this);
+    }
 }

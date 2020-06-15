@@ -30,5 +30,6 @@ public class SplashFragment extends Fragment implements SplashView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        presenter.getResumeInfo();
     }
 }
