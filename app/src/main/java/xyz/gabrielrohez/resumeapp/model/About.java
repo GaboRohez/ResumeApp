@@ -1,11 +1,8 @@
 package xyz.gabrielrohez.resumeapp.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.SerializedName;
 
-public class About implements Parcelable {
+public class About{
 
 	@SerializedName("resume")
 	private String resume;
@@ -25,60 +22,48 @@ public class About implements Parcelable {
 	@SerializedName("email")
 	private String email;
 
-	protected About(Parcel in) {
-		resume = in.readString();
-		phone = in.readLong();
-		name = in.readString();
-		location = in.readString();
-		job = in.readString();
-		email = in.readString();
+	public void setResume(String resume){
+		this.resume = resume;
 	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(resume);
-		dest.writeLong(phone);
-		dest.writeString(name);
-		dest.writeString(location);
-		dest.writeString(job);
-		dest.writeString(email);
-	}
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	public static final Creator<About> CREATOR = new Creator<About>() {
-		@Override
-		public About createFromParcel(Parcel in) {
-			return new About(in);
-		}
-
-		@Override
-		public About[] newArray(int size) {
-			return new About[size];
-		}
-	};
 
 	public String getResume(){
 		return resume;
+	}
+
+	public void setPhone(long phone){
+		this.phone = phone;
 	}
 
 	public long getPhone(){
 		return phone;
 	}
 
+	public void setName(String name){
+		this.name = name;
+	}
+
 	public String getName(){
 		return name;
+	}
+
+	public void setLocation(String location){
+		this.location = location;
 	}
 
 	public String getLocation(){
 		return location;
 	}
 
+	public void setJob(String job){
+		this.job = job;
+	}
+
 	public String getJob(){
 		return job;
+	}
+
+	public void setEmail(String email){
+		this.email = email;
 	}
 
 	public String getEmail(){

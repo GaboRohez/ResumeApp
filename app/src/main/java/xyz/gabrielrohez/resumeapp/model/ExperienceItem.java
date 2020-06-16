@@ -1,12 +1,9 @@
 package xyz.gabrielrohez.resumeapp.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class ExperienceItem implements Parcelable {
+public class ExperienceItem{
 
 	@SerializedName("reference")
 	private Reference reference;
@@ -35,76 +32,72 @@ public class ExperienceItem implements Parcelable {
 	@SerializedName("activities")
 	private List<String> activities;
 
-	protected ExperienceItem(Parcel in) {
-		period = in.readString();
-		city = in.readString();
-		activitys = in.createStringArrayList();
-		latitude = in.readString();
-		name = in.readString();
-		job = in.readString();
-		longitude = in.readString();
-		activities = in.createStringArrayList();
+	public void setReference(Reference reference){
+		this.reference = reference;
 	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeString(period);
-		dest.writeString(city);
-		dest.writeStringList(activitys);
-		dest.writeString(latitude);
-		dest.writeString(name);
-		dest.writeString(job);
-		dest.writeString(longitude);
-		dest.writeStringList(activities);
-	}
-
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	public static final Creator<ExperienceItem> CREATOR = new Creator<ExperienceItem>() {
-		@Override
-		public ExperienceItem createFromParcel(Parcel in) {
-			return new ExperienceItem(in);
-		}
-
-		@Override
-		public ExperienceItem[] newArray(int size) {
-			return new ExperienceItem[size];
-		}
-	};
 
 	public Reference getReference(){
 		return reference;
+	}
+
+	public void setPeriod(String period){
+		this.period = period;
 	}
 
 	public String getPeriod(){
 		return period;
 	}
 
+	public void setCity(String city){
+		this.city = city;
+	}
+
 	public String getCity(){
 		return city;
+	}
+
+	public void setActivitys(List<String> activitys){
+		this.activitys = activitys;
 	}
 
 	public List<String> getActivitys(){
 		return activitys;
 	}
 
+	public void setLatitude(String latitude){
+		this.latitude = latitude;
+	}
+
 	public String getLatitude(){
 		return latitude;
+	}
+
+	public void setName(String name){
+		this.name = name;
 	}
 
 	public String getName(){
 		return name;
 	}
 
+	public void setJob(String job){
+		this.job = job;
+	}
+
 	public String getJob(){
 		return job;
 	}
 
+	public void setLongitude(String longitude){
+		this.longitude = longitude;
+	}
+
 	public String getLongitude(){
 		return longitude;
+	}
+
+	public void setActivities(List<String> activities){
+		this.activities = activities;
 	}
 
 	public List<String> getActivities(){

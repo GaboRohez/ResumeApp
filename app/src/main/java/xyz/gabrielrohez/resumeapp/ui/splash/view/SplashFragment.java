@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -16,7 +15,6 @@ import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.constants.AppConstants;
 import xyz.gabrielrohez.resumeapp.databinding.FragmentSplashBinding;
 import xyz.gabrielrohez.resumeapp.model.ResumeResponse;
-import xyz.gabrielrohez.resumeapp.ui.about.AboutFragment;
 import xyz.gabrielrohez.resumeapp.ui.dialog.DialogFragment;
 import xyz.gabrielrohez.resumeapp.ui.splash.presenter.SplashPresenter;
 

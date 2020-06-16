@@ -9,7 +9,26 @@ import xyz.gabrielrohez.resumeapp.constants.AppConstants;
 
 public class RetrofitClient {
 
-    public static Retrofit retrofit;
+    public static Retrofit instance;
+
+    public static Retrofit getInstance() {
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(loggingInterceptor).build();
+
+        if (instance == null){
+            instance = new Retrofit.Builder().baseUrl(AppConstants.URL_BASE)
+                    .client(httpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        return instance;
+    }
+
+    public static ResumeAPIService getAPI(){
+        return getInstance().create(ResumeAPIService.class);
+    }
+    /*public static Retrofit retrofit;
     private static RetrofitClient retrofitClient;
 
     private RetrofitClient(){
@@ -27,8 +46,13 @@ public class RetrofitClient {
 
     public static RetrofitClient getInstance() {
         if(retrofitClient == null) {
-            retrofitClient = new RetrofitClient();
+            retrofitClient = new Retrofit.Builder()
+                    .baseUrl(AppConstants.URL_BASE)
+                    .client(httpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                    .build();
         }
         return retrofitClient;
-    }
+    }*/
 }
