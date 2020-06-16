@@ -9,50 +9,26 @@ import xyz.gabrielrohez.resumeapp.constants.AppConstants;
 
 public class RetrofitClient {
 
-    public static Retrofit instance;
+        public static Retrofit retrofit;
+        private static xyz.gabrielrohez.resumeapp.api.RetrofitClient retrofitClient;
 
-    public static Retrofit getInstance() {
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(loggingInterceptor).build();
+        private RetrofitClient(){
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(loggingInterceptor).build();
 
-        if (instance == null){
-            instance = new Retrofit.Builder().baseUrl(AppConstants.URL_BASE)
-                    .client(httpClient)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-        return instance;
-    }
-
-    public static ResumeAPIService getAPI(){
-        return getInstance().create(ResumeAPIService.class);
-    }
-    /*public static Retrofit retrofit;
-    private static RetrofitClient retrofitClient;
-
-    private RetrofitClient(){
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient httpClient = new OkHttpClient.Builder().addInterceptor(loggingInterceptor).build();
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl(AppConstants.URL_BASE)
-                .client(httpClient)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .build();
-    }
-
-    public static RetrofitClient getInstance() {
-        if(retrofitClient == null) {
-            retrofitClient = new Retrofit.Builder()
+            retrofit = new Retrofit.Builder()
                     .baseUrl(AppConstants.URL_BASE)
                     .client(httpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                     .build();
         }
-        return retrofitClient;
-    }*/
+
+        public static xyz.gabrielrohez.resumeapp.api.RetrofitClient getInstance() {
+            if(retrofitClient == null) {
+                retrofitClient = new RetrofitClient();
+            }
+            return retrofitClient;
+        }
 }

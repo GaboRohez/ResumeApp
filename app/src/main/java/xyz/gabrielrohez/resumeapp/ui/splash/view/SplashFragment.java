@@ -3,6 +3,7 @@ package xyz.gabrielrohez.resumeapp.ui.splash.view;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
 
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import xyz.gabrielrohez.resumeapp.databinding.FragmentSplashBinding;
 import xyz.gabrielrohez.resumeapp.model.ResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.dialog.DialogFragment;
 import xyz.gabrielrohez.resumeapp.ui.splash.presenter.SplashPresenter;
+import xyz.gabrielrohez.resumeapp.ui.splash.viewmodel.SplashViewModel;
 
 public class SplashFragment extends Fragment implements SplashView {
 
@@ -69,6 +71,8 @@ public class SplashFragment extends Fragment implements SplashView {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                SplashViewModel viewModel = ViewModelProviders.of(requireActivity()).get(SplashViewModel.class);
+                viewModel.setResponse(response);
                 //Bundle bundle = new Bundle();
                 //bundle.putParcelable("resume", response);
                 Navigation.findNavController(getView()).navigate(R.id.action_splash_to_action_about);

@@ -31,5 +31,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        SplashViewModel viewModel = ViewModelProviders.of(requireActivity()).get(SplashViewModel.class);
+        Log.d("SALIDA_VIEWMODEL", viewModel.getResponse().getSkills().getLanguages().toString());
     }
 }
