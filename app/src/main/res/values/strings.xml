@@ -2,4 +2,9 @@
     <string name="app_name">Resume Rohez</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sorry">Sorry</string>
+    <string name="retry">Retry</string>
+    <string name="accept">Accept</string>
 </resources>
