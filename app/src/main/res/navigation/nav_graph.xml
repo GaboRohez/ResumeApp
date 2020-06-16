@@ -25,7 +25,7 @@
         tools:layout="@layout/fragment_dialog" />
     <fragment
         android:id="@+id/menuFragment"
-        android:name="xyz.gabrielrohez.resumeapp.MenuFragment"
+        android:name="xyz.gabrielrohez.resumeapp.ui.menu.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
 </navigation>
