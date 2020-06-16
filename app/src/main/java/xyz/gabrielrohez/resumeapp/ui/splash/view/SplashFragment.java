@@ -16,6 +16,7 @@ import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.constants.AppConstants;
 import xyz.gabrielrohez.resumeapp.databinding.FragmentSplashBinding;
 import xyz.gabrielrohez.resumeapp.model.ResumeResponse;
+import xyz.gabrielrohez.resumeapp.ui.about.AboutFragment;
 import xyz.gabrielrohez.resumeapp.ui.dialog.DialogFragment;
 import xyz.gabrielrohez.resumeapp.ui.splash.presenter.SplashPresenter;
 
@@ -70,9 +71,9 @@ public class SplashFragment extends Fragment implements SplashView {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("resume", response);
-                Navigation.findNavController(getView()).navigate(R.id.action_splash_to_menu);
+                //Bundle bundle = new Bundle();
+                //bundle.putParcelable("resume", response);
+                Navigation.findNavController(getView()).navigate(R.id.action_splash_to_action_about);
             }
         }, 3000);
     }
