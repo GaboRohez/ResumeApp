@@ -1,5 +1,7 @@
 package xyz.gabrielrohez.resumeapp.ui.about;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,11 +16,20 @@ import android.view.ViewGroup;
 
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.databinding.FragmentAboutBinding;
+import xyz.gabrielrohez.resumeapp.model.ResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.splash.viewmodel.SplashViewModel;
 
-public class AboutFragment extends Fragment {
+public class AboutFragment extends Fragment implements View.OnClickListener {
 
+    private ResumeResponse resume;
     private FragmentAboutBinding binding;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        SplashViewModel viewModel = ViewModelProviders.of(requireActivity()).get(SplashViewModel.class);
+        resume = viewModel.getResponse();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,7 +42,43 @@ public class AboutFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        SplashViewModel viewModel = ViewModelProviders.of(requireActivity()).get(SplashViewModel.class);
-        Log.d("SALIDA_VIEWMODEL", viewModel.getResponse().getSkills().getLanguages().toString());
+        setUpData();
+        setUpEvents();
+    }
+
+    /**
+     * In this method, fill the textviews with info from viewModel
+     */
+    private void setUpData() {
+        binding.tvName.setText(resume.getAbout().getName());
+        binding.tvLocation.setText(resume.getAbout().getLocation());
+        binding.tvJob.setText(resume.getAbout().getJob());
+        binding.tvResume.setText(resume.getAbout().getResume());
+    }
+
+    /**
+     * Create onclick method in imagebuttons
+     */
+    private void setUpEvents() {
+        binding.btnWeb.setOnClickListener(this);
+        binding.btnGithub.setOnClickListener(this);
+        binding.btnPlaystore.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        String url = "";
+        switch (v.getId()){
+            case R.id.btnWeb:
+                url = resume.getSocial().getWeb();
+                break;
+            case R.id.btnGithub:
+                url = resume.getSocial().getGithub();
+                break;
+            case R.id.btnPlaystore:
+                url = resume.getSocial().getPlaystore();
+                break;
+        }
+        startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url)));
     }
 }
