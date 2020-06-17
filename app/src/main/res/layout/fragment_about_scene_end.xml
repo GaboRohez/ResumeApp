@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.about.AboutFragment"
-    app:layoutDescription="@xml/fragment_about_scene">
+    tools:context=".ui.about.AboutFragment">
 
     <RelativeLayout
         android:id="@+id/layoutHeader"
@@ -73,7 +72,7 @@
                 android:id="@+id/btnWeb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_padding_size_large"
+                android:layout_marginRight="@dimen/margin_padding_size_large"
                 android:background="@null"
                 android:src="@drawable/ic_internet" />
 
@@ -88,7 +87,7 @@
                 android:id="@+id/btnPlaystore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_padding_size_large"
+                android:layout_marginLeft="@dimen/margin_padding_size_large"
                 android:background="@null"
                 android:src="@drawable/ic_google_play" />
         </LinearLayout>
@@ -117,11 +116,12 @@
     <ScrollView
         android:id="@+id/contetn_layout"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHeader">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -151,4 +151,4 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".154" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
