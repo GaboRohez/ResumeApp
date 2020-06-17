@@ -30,12 +30,28 @@
             android:layout_height="match_parent"
             android:background="#39000000" />
 
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/contentHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_padding_size_medium"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/title_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/raleway_semibold"
+            android:textAlignment="center"
             android:textColor="@color/colorWhite"
             tools:text="José Gabriel Rodríguez Hernández" />
 
@@ -58,40 +74,45 @@
             android:layout_below="@+id/tvLocation"
             android:layout_centerInParent="true"
             android:fontFamily="@font/raleway_semibold"
+            android:textAlignment="center"
             android:textColor="@color/colorWhite"
             tools:text="Android Developer" />
 
-        <LinearLayout
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contentSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toTopOf="@+id/title_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnWeb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvJob"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/margin_padding_size_medium">
+            android:layout_marginEnd="@dimen/margin_padding_size_large"
+            android:background="@null"
+            android:src="@drawable/ic_internet" />
 
-            <ImageButton
-                android:id="@+id/btnWeb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin_padding_size_large"
-                android:background="@null"
-                android:src="@drawable/ic_internet" />
+        <ImageButton
+            android:id="@+id/btnGithub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/ic_github" />
 
-            <ImageButton
-                android:id="@+id/btnGithub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@drawable/ic_github" />
-
-            <ImageButton
-                android:id="@+id/btnPlaystore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_padding_size_large"
-                android:background="@null"
-                android:src="@drawable/ic_google_play" />
-        </LinearLayout>
-    </RelativeLayout>
+        <ImageButton
+            android:id="@+id/btnPlaystore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_size_large"
+            android:background="@null"
+            android:src="@drawable/ic_google_play" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/title_layout"

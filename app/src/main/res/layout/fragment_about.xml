@@ -31,10 +31,25 @@
             android:layout_height="match_parent"
             android:background="#39000000" />
 
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/contentHeader"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="@dimen/margin_padding_size_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/title_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:layout_centerInParent="true"
             android:fontFamily="@font/raleway_semibold"
             android:textColor="@color/colorWhite"
@@ -54,6 +69,7 @@
 
         <TextView
             android:id="@+id/tvJob"
+            android:textAlignment="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvLocation"
@@ -62,37 +78,41 @@
             android:textColor="@color/colorWhite"
             tools:text="Android Developer" />
 
-        <LinearLayout
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/contentSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:layout_constraintBottom_toTopOf="@+id/title_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contentHeader">
+
+        <ImageButton
+            android:id="@+id/btnWeb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvJob"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="@dimen/margin_padding_size_medium">
+            android:layout_marginEnd="@dimen/margin_padding_size_large"
+            android:background="@null"
+            android:src="@drawable/ic_internet" />
 
-            <ImageButton
-                android:id="@+id/btnWeb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_padding_size_large"
-                android:background="@null"
-                android:src="@drawable/ic_internet" />
+        <ImageButton
+            android:id="@+id/btnGithub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/ic_github" />
 
-            <ImageButton
-                android:id="@+id/btnGithub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@drawable/ic_github" />
-
-            <ImageButton
-                android:id="@+id/btnPlaystore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_padding_size_large"
-                android:background="@null"
-                android:src="@drawable/ic_google_play" />
-        </LinearLayout>
-    </RelativeLayout>
+        <ImageButton
+            android:id="@+id/btnPlaystore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padding_size_large"
+            android:background="@null"
+            android:src="@drawable/ic_google_play" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/title_layout"
