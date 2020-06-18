@@ -15,5 +15,7 @@
     <string name="version_control">Version Control</string>
     <string name="platforms">Platforms</string>
     <string name="education_and_courses">Education and other courses</string>
+    <string name="experience">Experience</string>
+    <string name="my_own_application">My own applications</string>
 
 </resources>
