@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/contetn_layout"
+        app:layout_constraintBottom_toTopOf="@+id/scrollableContent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +88,7 @@
         app:layout_constraintBottom_toTopOf="@+id/title_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/contentHeader">
 
         <ImageButton
             android:id="@+id/btnWeb"
@@ -114,56 +114,24 @@
             android:src="@drawable/ic_google_play" />
     </LinearLayout>
 
-    <LinearLayout
+    <View
         android:id="@+id/title_layout"
         android:layout_width="0dp"
-        android:layout_height="?actionBarSize"
+        android:layout_height="@dimen/margin_padding_size_medium"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/layoutHeader"
+        android:background="@drawable/header_bg"
+        app:layout_constraintBottom_toTopOf="@+id/scrollableContent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"/>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/header_bg"
-            android:fontFamily="@font/raleway_semibold"
-            android:padding="16dp"
-            android:textColor="@android:color/background_dark"
-            android:textSize="22sp" />
-    </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/contetn_layout"
+    <include
+        android:id="@+id/scrollableContent"
+        layout="@layout/content_scroll"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guidelineHeader">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/tvResume"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_semibold"
-                android:paddingLeft="32dp"
-                android:paddingRight="32dp"
-                android:paddingBottom="32dp"
-                android:text="@string/lorem"
-                app:lineHeight="25dp" />
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="@+id/guidelineHeader" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHeader"
@@ -171,5 +139,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".154" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.72640216" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

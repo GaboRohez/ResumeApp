@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import xyz.gabrielrohez.resumeapp.R;
+import xyz.gabrielrohez.resumeapp.databinding.ContentScrollBinding;
 import xyz.gabrielrohez.resumeapp.databinding.FragmentAboutBinding;
 import xyz.gabrielrohez.resumeapp.model.ResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.splash.viewmodel.SplashViewModel;
@@ -23,6 +24,7 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
 
     private ResumeResponse resume;
     private FragmentAboutBinding binding;
+    private ContentScrollBinding bindingScroll;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentAboutBinding.inflate(inflater, container, false);
+        bindingScroll = binding.scrollableContent;
         return binding.getRoot();
     }
 
@@ -53,7 +56,7 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         binding.tvName.setText(resume.getAbout().getName());
         binding.tvLocation.setText(resume.getAbout().getLocation());
         binding.tvJob.setText(resume.getAbout().getJob());
-        binding.tvResume.setText(resume.getAbout().getResume());
+        bindingScroll.tvResume.setText(resume.getAbout().getResume());
     }
 
     /**
