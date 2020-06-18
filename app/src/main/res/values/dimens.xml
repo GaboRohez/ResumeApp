@@ -17,5 +17,6 @@
     <dimen name="margin_padding_size_xxxlarge">80dp</dimen>
     <!--  Margin -->
     <dimen name="dimen_corner_radius">30dp</dimen>
+    <dimen name="dimen_education_image">70dp</dimen>
     <dimen name="dimen_height_dialog">150dp</dimen>
 </resources>
