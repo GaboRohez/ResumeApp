@@ -8,14 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import org.jetbrains.annotations.NotNull;
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.databinding.ContentScrollBinding;
 import xyz.gabrielrohez.resumeapp.databinding.FragmentAboutBinding;
@@ -25,7 +22,6 @@ import xyz.gabrielrohez.resumeapp.ui.splash.viewmodel.SplashViewModel;
 
 public class AboutFragment extends Fragment implements View.OnClickListener {
 
-    private ChipAdapter adapter;
     private ResumeResponse resume;
     private FragmentAboutBinding binding;
     private ContentScrollBinding bindingScroll;
@@ -38,7 +34,7 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentAboutBinding.inflate(inflater, container, false);
@@ -63,11 +59,35 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         bindingScroll.tvResume.setText(resume.getAbout().getResume());
 
         //  recyclerviews
-        adapter = new ChipAdapter(resume.getSkills().getLanguages());
-        bindingScroll.recyclerLanguages.setLayoutManager(new GridLayoutManager(requireActivity(), 3, GridLayoutManager.VERTICAL, false));
+        ChipAdapter adapter = new ChipAdapter(resume.getSkills().getLanguages());
+        bindingScroll.recyclerLanguages.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
         bindingScroll.recyclerLanguages.setHasFixedSize(true);
         bindingScroll.recyclerLanguages.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        ChipAdapter adapterDatabases = new ChipAdapter(resume.getSkills().getDatabase());
+        bindingScroll.recyclerDatabases.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+        bindingScroll.recyclerDatabases.setHasFixedSize(true);
+        bindingScroll.recyclerDatabases.setAdapter(adapterDatabases);
+        adapterDatabases.notifyDataSetChanged();
+
+        ChipAdapter adapterDevelopment = new ChipAdapter(resume.getSkills().getIde());
+        bindingScroll.recyclerDevelopment.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+        bindingScroll.recyclerDevelopment.setHasFixedSize(true);
+        bindingScroll.recyclerDevelopment.setAdapter(adapterDevelopment);
+        adapterDevelopment.notifyDataSetChanged();
+
+        ChipAdapter adapterVControlt = new ChipAdapter(resume.getSkills().getVersionControl());
+        bindingScroll.recyclerVControl.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+        bindingScroll.recyclerVControl.setHasFixedSize(true);
+        bindingScroll.recyclerVControl.setAdapter(adapterVControlt);
+        adapterVControlt.notifyDataSetChanged();
+
+        ChipAdapter adapterPlatforms = new ChipAdapter(resume.getSkills().getPlatforms());
+        bindingScroll.recyclerPlatforms.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+        bindingScroll.recyclerPlatforms.setHasFixedSize(true);
+        bindingScroll.recyclerPlatforms.setAdapter(adapterPlatforms);
+        adapterPlatforms.notifyDataSetChanged();
     }
 
     /**

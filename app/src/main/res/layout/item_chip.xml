@@ -6,6 +6,7 @@
     android:textAppearance="@style/chipTextAppearance"
     android:id="@+id/chip"
     tools:text="@tools:sample/lorem"
+    android:layout_marginRight="@dimen/margin_padding_size_xlarge"
     app:chipIcon="@drawable/ic_code"
     android:textColor="@color/darkBlue"
     app:chipBackgroundColor="@color/bg_chip_state_list"

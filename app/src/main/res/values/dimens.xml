@@ -14,6 +14,7 @@
     <dimen name="margin_padding_size_large">24dp</dimen>
     <dimen name="margin_padding_size_xlarge">32dp</dimen>
     <dimen name="margin_padding_size_xxlarge">40dp</dimen>
+    <dimen name="margin_padding_size_xxxlarge">80dp</dimen>
     <!--  Margin -->
     <dimen name="dimen_corner_radius">30dp</dimen>
     <dimen name="dimen_height_dialog">150dp</dimen>
