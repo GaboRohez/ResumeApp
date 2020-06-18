@@ -13,4 +13,15 @@
     <color name="colorTransparent">#7E000000</color>
     <color name="black_overlay">#66000000</color>
 
+    <color name="lightGreen">#E3F6F2</color>
+    <color name="darkGreen">#0AAD82</color>
+
+    <color name="lighPink">#FFF1F1</color>
+    <color name="darkPink">#E97978</color>
+
+    <color name="lightBlue">#EBF5FE</color>
+    <color name="darkBlue">#3297FE</color>
+
+    <color name="lightOrange">#FEF5EC</color>
+    <color name="darkOrange">#F17B22</color>
 </resources>

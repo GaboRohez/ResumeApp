@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,10 +20,12 @@ import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.databinding.ContentScrollBinding;
 import xyz.gabrielrohez.resumeapp.databinding.FragmentAboutBinding;
 import xyz.gabrielrohez.resumeapp.model.ResumeResponse;
+import xyz.gabrielrohez.resumeapp.ui.about.adapter.ChipAdapter;
 import xyz.gabrielrohez.resumeapp.ui.splash.viewmodel.SplashViewModel;
 
 public class AboutFragment extends Fragment implements View.OnClickListener {
 
+    private ChipAdapter adapter;
     private ResumeResponse resume;
     private FragmentAboutBinding binding;
     private ContentScrollBinding bindingScroll;
@@ -57,6 +61,13 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         binding.tvLocation.setText(resume.getAbout().getLocation());
         binding.tvJob.setText(resume.getAbout().getJob());
         bindingScroll.tvResume.setText(resume.getAbout().getResume());
+
+        //  recyclerviews
+        adapter = new ChipAdapter(resume.getSkills().getLanguages());
+        bindingScroll.recyclerLanguages.setLayoutManager(new GridLayoutManager(requireActivity(), 3, GridLayoutManager.VERTICAL, false));
+        bindingScroll.recyclerLanguages.setHasFixedSize(true);
+        bindingScroll.recyclerLanguages.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     /**
