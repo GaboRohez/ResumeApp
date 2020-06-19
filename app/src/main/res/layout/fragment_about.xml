@@ -58,7 +58,6 @@
             android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvName"
             android:layout_centerInParent="true"
             android:drawableStart="@drawable/ic_location"
             android:fontFamily="@font/raleway_semibold"
@@ -70,12 +69,21 @@
             android:id="@+id/tvJob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvLocation"
             android:layout_centerInParent="true"
             android:fontFamily="@font/raleway_semibold"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"
             tools:text="Android Developer" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/raleway_light"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            tools:text="gabow95k@gmail.com" />
 
     </LinearLayout>
 

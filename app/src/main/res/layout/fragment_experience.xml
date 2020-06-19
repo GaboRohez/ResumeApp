@@ -44,6 +44,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerApps"
                 android:overScrollMode="never"
+                android:nestedScrollingEnabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_padding_size_large" />
@@ -62,6 +63,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerExperience"
                     android:overScrollMode="never"
+                    android:nestedScrollingEnabled="false"
                     tools:listitem="@layout/item_work_experience"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

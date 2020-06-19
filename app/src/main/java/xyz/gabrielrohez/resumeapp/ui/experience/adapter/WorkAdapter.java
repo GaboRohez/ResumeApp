@@ -1,14 +1,10 @@
 package xyz.gabrielrohez.resumeapp.ui.experience.adapter;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-
 import xyz.gabrielrohez.resumeapp.databinding.ItemWorkExperienceBinding;
 import xyz.gabrielrohez.resumeapp.model.ExperienceItem;
 
@@ -30,6 +26,12 @@ public class WorkAdapter  extends RecyclerView.Adapter<WorkAdapter.ViewHolder> {
         holder.binding.tvJob.setText(list.get(position).getJob());
         holder.binding.tvLocation.setText(list.get(position).getName()+ " - "+list.get(position).getCity());
         holder.binding.tvPeriod.setText(list.get(position).getPeriod());
+
+        StringBuilder activities = new StringBuilder();
+        for (String item : list.get(position).getActivities()){
+            activities.append("• "+item+"\n");
+        }
+        holder.binding.tvActivities.setText(activities.toString().trim());
     }
 
     @Override

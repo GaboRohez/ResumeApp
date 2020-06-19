@@ -56,6 +56,7 @@ public class AboutFragment extends Fragment implements View.OnClickListener {
         binding.tvName.setText(resume.getAbout().getName());
         binding.tvLocation.setText(resume.getAbout().getLocation());
         binding.tvJob.setText(resume.getAbout().getJob());
+        binding.tvEmail.setText(resume.getAbout().getEmail());
         bindingScroll.tvResume.setText(resume.getAbout().getResume());
 
         //  recyclerviews

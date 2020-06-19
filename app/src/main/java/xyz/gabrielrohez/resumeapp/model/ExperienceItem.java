@@ -14,9 +14,6 @@ public class ExperienceItem{
 	@SerializedName("city")
 	private String city;
 
-	@SerializedName("activitys")
-	private List<String> activitys;
-
 	@SerializedName("latitude")
 	private String latitude;
 
@@ -54,14 +51,6 @@ public class ExperienceItem{
 
 	public String getCity(){
 		return city;
-	}
-
-	public void setActivitys(List<String> activitys){
-		this.activitys = activitys;
-	}
-
-	public List<String> getActivitys(){
-		return activitys;
 	}
 
 	public void setLatitude(String latitude){
@@ -111,8 +100,7 @@ public class ExperienceItem{
 			"reference = '" + reference + '\'' + 
 			",period = '" + period + '\'' + 
 			",city = '" + city + '\'' + 
-			",activitys = '" + activitys + '\'' + 
-			",latitude = '" + latitude + '\'' + 
+			",latitude = '" + latitude + '\'' +
 			",name = '" + name + '\'' + 
 			",job = '" + job + '\'' + 
 			",longitude = '" + longitude + '\'' + 

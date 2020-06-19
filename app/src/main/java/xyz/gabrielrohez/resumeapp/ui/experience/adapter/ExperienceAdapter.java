@@ -2,6 +2,7 @@ package xyz.gabrielrohez.resumeapp.ui.experience.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,12 +13,18 @@ import xyz.gabrielrohez.resumeapp.model.AppsItem;
 
 public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.ViewHolder> {
 
+    public AppClick listener;
     private Context context;
     private List<AppsItem> list;
 
-    public ExperienceAdapter(List<AppsItem> list, Context context) {
+    public ExperienceAdapter(List<AppsItem> list, Context context, AppClick listener) {
         this.list = list;
         this.context = context;
+        this.listener = listener;
+    }
+
+    public interface AppClick{
+        void openPage(String url);
     }
 
     @Override
@@ -31,6 +38,12 @@ public class ExperienceAdapter extends RecyclerView.Adapter<ExperienceAdapter.Vi
         Glide.with(context)
                 .load(list.get(position).getImageUrl())
                 .into(holder.binding.imageApp);
+        holder.binding.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.openPage(list.get(position).getUrl());
+            }
+        });
     }
 
     @Override

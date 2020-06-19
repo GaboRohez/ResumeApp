@@ -1,5 +1,7 @@
 package xyz.gabrielrohez.resumeapp.ui.experience;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.databinding.FragmentExperienceBinding;
@@ -20,8 +23,9 @@ import xyz.gabrielrohez.resumeapp.ui.experience.adapter.ExperienceAdapter;
 import xyz.gabrielrohez.resumeapp.ui.experience.adapter.WorkAdapter;
 import xyz.gabrielrohez.resumeapp.ui.splash.viewmodel.SplashViewModel;
 
-public class ExperienceFragment extends Fragment {
+public class ExperienceFragment extends Fragment implements ExperienceAdapter.AppClick {
 
+    private View view;
     private ResumeResponse resume;
     private FragmentExperienceBinding binding;
 
@@ -48,7 +52,7 @@ public class ExperienceFragment extends Fragment {
 
     private void setUpRecycler() {
 
-        ExperienceAdapter experienceAdapter = new ExperienceAdapter(resume.getApps(), requireActivity());
+        ExperienceAdapter experienceAdapter = new ExperienceAdapter(resume.getApps(), requireActivity(), this);
         binding.recyclerApps.setLayoutManager(new GridLayoutManager(requireActivity(), 3, GridLayoutManager.VERTICAL, false));
         binding.recyclerApps.setHasFixedSize(true);
         binding.recyclerApps.setAdapter(experienceAdapter);
@@ -60,5 +64,10 @@ public class ExperienceFragment extends Fragment {
         binding.recyclerExperience.setAdapter(workAdapter);
         workAdapter.notifyDataSetChanged();
 
+    }
+
+    @Override
+    public void openPage(String url) {
+        startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url)));
     }
 }

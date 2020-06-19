@@ -30,8 +30,9 @@
         android:id="@+id/tvActivities"
         android:layout_marginTop="@dimen/margin_padding_size_small"
         android:text="@string/lorem"
+        android:textSize="12sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_semibold" />
+        android:fontFamily="@font/raleway_light" />
 
 </LinearLayout>
