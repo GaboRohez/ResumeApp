@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import xyz.gabrielrohez.resumeapp.R;
 import xyz.gabrielrohez.resumeapp.databinding.FragmentExperienceBinding;
 import xyz.gabrielrohez.resumeapp.model.ResumeResponse;
 import xyz.gabrielrohez.resumeapp.ui.experience.adapter.ExperienceAdapter;
+import xyz.gabrielrohez.resumeapp.ui.experience.adapter.WorkAdapter;
 import xyz.gabrielrohez.resumeapp.ui.splash.viewmodel.SplashViewModel;
 
 public class ExperienceFragment extends Fragment {
@@ -46,11 +48,17 @@ public class ExperienceFragment extends Fragment {
 
     private void setUpRecycler() {
 
-        ExperienceAdapter adapterExperience = new ExperienceAdapter(resume.getApps(), requireActivity());
-        binding.recyclerApps.setLayoutManager(new GridLayoutManager(requireActivity(), 4, GridLayoutManager.VERTICAL, false));
+        ExperienceAdapter experienceAdapter = new ExperienceAdapter(resume.getApps(), requireActivity());
+        binding.recyclerApps.setLayoutManager(new GridLayoutManager(requireActivity(), 3, GridLayoutManager.VERTICAL, false));
         binding.recyclerApps.setHasFixedSize(true);
-        binding.recyclerApps.setAdapter(adapterExperience);
-        adapterExperience.notifyDataSetChanged();
+        binding.recyclerApps.setAdapter(experienceAdapter);
+        experienceAdapter.notifyDataSetChanged();
+
+        WorkAdapter workAdapter = new WorkAdapter(resume.getExperience());
+        binding.recyclerExperience.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        binding.recyclerExperience.setHasFixedSize(true);
+        binding.recyclerExperience.setAdapter(workAdapter);
+        workAdapter.notifyDataSetChanged();
 
     }
 }

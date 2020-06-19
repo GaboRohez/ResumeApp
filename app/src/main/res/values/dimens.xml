@@ -20,6 +20,6 @@
     <dimen name="dimen_education_image">70dp</dimen>
     <dimen name="dimen_height_dialog">150dp</dimen>
     <dimen name="dimen_width_card">100dp</dimen>
-    <dimen name="dimen_height_card">130dp</dimen>
+    <dimen name="dimen_height_card">140dp</dimen>
     <dimen name="dimen_image_card">80dp</dimen>
 </resources>

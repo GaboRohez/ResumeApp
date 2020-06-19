@@ -25,6 +25,8 @@
             <TextView
                 android:id="@+id/titleApp"
                 android:textAlignment="center"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:fontFamily="@font/raleway_semibold"
                 android:textSize="12sp"
                 android:layout_marginTop="@dimen/margin_padding_size_small"
