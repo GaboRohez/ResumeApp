@@ -2,6 +2,15 @@ apply plugin: 'com.android.application'
 
 android {
 
+    signingConfigs {
+        release {
+            keyAlias 'gabo_ks'
+            keyPassword 'omega_7xl9'
+            storeFile file('../key_store')
+            storePassword '#Paralax_27'
+        }
+    }
+
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -16,9 +25,14 @@ android {
     buildTypes {
         release {
             debuggable false
+            jniDebuggable false
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            renderscriptDebuggable false
+            pseudoLocalesEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 

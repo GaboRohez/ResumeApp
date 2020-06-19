@@ -25,7 +25,6 @@ import xyz.gabrielrohez.resumeapp.ui.splash.viewmodel.SplashViewModel;
 
 public class ExperienceFragment extends Fragment implements ExperienceAdapter.AppClick {
 
-    private View view;
     private ResumeResponse resume;
     private FragmentExperienceBinding binding;
 
